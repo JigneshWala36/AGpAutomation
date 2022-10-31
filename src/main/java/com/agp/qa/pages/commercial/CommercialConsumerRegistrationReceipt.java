@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Optional;
+
 
 public class CommercialConsumerRegistrationReceipt extends TestBase {
 
@@ -364,6 +364,7 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
             TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptClearBtn);
             TestUtil.waiting(1000);
+            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSaveAndPrintBtn);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSaveAndPrintBtn);
 
 
