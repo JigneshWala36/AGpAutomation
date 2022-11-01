@@ -14,12 +14,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.awt.AWTException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 
 public class TestUtil extends TestBase {
@@ -62,6 +67,39 @@ public class TestUtil extends TestBase {
         String errflpath = Dest.getAbsolutePath();
         FileUtils.copyFile(scrFile, Dest);
         return errflpath;
+    }
+
+    // URL Video ->  https://www.youtube.com/watch?v=7xh371gk2ho
+
+
+    // Use the Below code method for swtiching between the multiple Tab
+
+//    Set<String> handles = driver.getWindowHandles();
+//    List<String> hList = new ArrayList<String >(handles);
+//    if(switchToRightWindow(""), hList){
+//        System.out.println(driver.getCurrentUrl()+":"+driver.getTitle());
+//    }
+    public static boolean switchToRightWindow(String windowTitle, List<String> hList){
+        for (String e: hList) {
+            String title = driver.switchTo().window(e).getTitle();
+            if (title.contains(windowTitle)){
+                System.out.println("Found the right window");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void switchToParentWindowId(String parentWindowId){
+        driver.switchTo().window(parentWindowId);
+    }
+
+    public static void closeAllWindows(List<String> hList, String parentWindowId){
+        for (String e: hList) {
+            if (!e.equals(parentWindowId)){
+                driver.switchTo().window(e).close();
+            }
+        }
     }
 
 //    public ExtentTest addScreenCaptureFromPath(String imagePath, String title) throws IOException {
@@ -235,6 +273,16 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
         return value;
     }
 
+    public static String getSplitStringOfFirstArray(WebElement getStringForStill){
+        String fullString = TestUtil.getTextFromUI(getStringForStill);
+//            System.out.println("----------------" + fullString);
+        String[] splitingAtringIntoArrays = fullString.split(": ");
+        String finalSplitStringToBeUse = splitingAtringIntoArrays[1];
+        String verifyFinalString = finalSplitStringToBeUse;
+        return verifyFinalString;
+    }
+
+
 
     public static void sendKeyWithDataProperties(WebElement sendKeyWithDataElementWebElement, String str) {
         try {
@@ -259,6 +307,21 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
         } catch (NoSuchElementException e) {
             System.out.println("Bad Luck! No Such Element Found for the Locator " + clearElement);
         }
+
+    }
+
+    public static void keyboradPressEsc() {
+        try {
+
+            Robot r = new Robot();
+            r.keyPress(KeyEvent.VK_ESCAPE);
+            r.keyRelease(KeyEvent.VK_ESCAPE);
+//            Actions action = new Actions(driver);
+//            action.sendKeys(Keys.ESCAPE).build().perform();
+        } catch (AWTException ae) {
+            ae.printStackTrace();
+        }
+
     }
 
     public static void highlightElement(WebElement element){
