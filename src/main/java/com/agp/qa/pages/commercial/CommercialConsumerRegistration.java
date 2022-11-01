@@ -533,7 +533,7 @@ public class CommercialConsumerRegistration extends TestBase {
 
                 TestUtil.highlightElement(comConsumerRegistrationAccountTypeHeader);
                 Thread.sleep(500);
-                TestUtil.selectMethod(comConsumerRegistrationAccountTypeDropDownClick, AccountTypeSelect);
+                TestUtil.selectMethodExcelString(comConsumerRegistrationAccountTypeDropDownClick, AccountTypeSelect);
                 Thread.sleep(2000);
 
                 TestUtil.highlightElement(comConsumerRegistrationDateHeader);
@@ -552,7 +552,7 @@ public class CommercialConsumerRegistration extends TestBase {
 
                 TestUtil.highlightElement(comConsumerRegistrationLegalEntityHeader);
                 Thread.sleep(500);
-                TestUtil.selectMethod(comConsumerRegistrationLegalEntityDropDownClick, LegalEntitySelect);
+                TestUtil.selectMethodExcelString(comConsumerRegistrationLegalEntityDropDownClick, LegalEntitySelect);
                 Thread.sleep(500);
 
 
@@ -591,22 +591,22 @@ public class CommercialConsumerRegistration extends TestBase {
 
                 TestUtil.highlightElement(comConsumerRegistrationCityHeader);
                 Thread.sleep(500);
-                TestUtil.selectMethod(comConsumerRegistrationCityDropDownClick, City);
+                TestUtil.selectMethodExcelString(comConsumerRegistrationCityDropDownClick, City);
                 Thread.sleep(2000);
 
                 TestUtil.highlightElement(comConsumerRegistrationAreaNameHeader);
                 Thread.sleep(500);
-                TestUtil.selectMethod(comConsumerRegistrationAreaNameDropDownClick, AreaName);
+                TestUtil.selectMethodExcelString(comConsumerRegistrationAreaNameDropDownClick, AreaName);
                 Thread.sleep(2000);
 
                 TestUtil.highlightElement(comConsumerRegistrationPincodeHeader);
                 Thread.sleep(500);
-                TestUtil.selectMethod(comConsumerRegistrationPincodeDropDownClick, Pincode);
+                TestUtil.selectMethodExcelString(comConsumerRegistrationPincodeDropDownClick, Pincode);
                 Thread.sleep(2000);
 
                 TestUtil.highlightElement(comConsumerRegistrationNameTypeHeader);
                 Thread.sleep(500);
-                TestUtil.selectMethod(comConsumerRegistrationNameTypeDropDownClick, TypeOfEstablishment);
+                TestUtil.selectMethodExcelString(comConsumerRegistrationNameTypeDropDownClick, TypeOfEstablishment);
                 String NonCommercialNameType = comConsumerRegistrationNameTypeDropDownClick.getText();
                 System.out.println(comConsumerRegistrationNameTypeDropDownClick.getText());
                 Thread.sleep(1000);

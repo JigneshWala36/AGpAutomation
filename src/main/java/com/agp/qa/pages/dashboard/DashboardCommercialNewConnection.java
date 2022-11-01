@@ -33,7 +33,7 @@ public class DashboardCommercialNewConnection extends TestBase {
     public static WebElement commercialPOSUpdation;
 
     @FindBy(xpath = "//a[@href='/CustomerAgreementApprovalCommercial']")
-    public static WebElement commercialCustomerAgreementApprovalCommercial;
+    public static WebElement commercialCustomerApplicationApprovalCommercial;
 
 
 
@@ -106,11 +106,11 @@ public class DashboardCommercialNewConnection extends TestBase {
         new CommercialPOSUpdation();
     }
 
-    public void commercialCustomerAgreementApprovalCommercialClick() {
+    public void commercialCustomerApplicationApprovalCommercialClick() {
         try {
-            TestUtil.highlightElement(commercialCustomerAgreementApprovalCommercial);
+            TestUtil.highlightElement(commercialCustomerApplicationApprovalCommercial);
             Thread.sleep(1000);
-            commercialCustomerAgreementApprovalCommercial.click();
+            commercialCustomerApplicationApprovalCommercial.click();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

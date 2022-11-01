@@ -15,10 +15,10 @@ public class DashboardGasIn extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[normalize-space()='Route & Meter Assignment Form']")
+    @FindBy(xpath = "//a[contains(text(),'Route & Meter Assignment Form')]")
     public static WebElement gasInRouteAndMeterAssignmentForm;
 
-    @FindBy(xpath = "//a[normalize-space()='Route & Meter Approval Form']")
+    @FindBy(xpath = "//a[contains(text(),'Route & Meter Approval Form')]")
     public static WebElement gasInRouteAndMeterApprovalForm;
 
     @FindBy(xpath = "//a[normalize-space()='Bulk Gas In']")

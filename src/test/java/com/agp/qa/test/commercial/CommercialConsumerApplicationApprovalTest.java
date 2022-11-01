@@ -1,15 +1,23 @@
 package com.agp.qa.test.commercial;
 
 import com.agp.qa.base.TestBase;
+import com.agp.qa.pages.billing.BillingGenerateBill;
+import com.agp.qa.pages.commercial.CommercialConsumerApplicationApproval;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistration1;
+import com.agp.qa.pages.commercial.CommercialConsumerRegistrationReceipt;
 import com.agp.qa.pages.commercial.CommercialUploadRegistrationFormDocument;
+import com.agp.qa.pages.dashboard.DashboardBilling;
 import com.agp.qa.pages.dashboard.DashboardCommercialNewConnection;
+import com.agp.qa.pages.dashboard.DashboardGasIn;
 import com.agp.qa.pages.dashboard.DashboardPage;
+import com.agp.qa.pages.gasIn.GasInRouteAndMeterApprovalForm;
+import com.agp.qa.pages.gasIn.GasInRouteAndMeterAssignmentForm;
 import com.agp.qa.pages.login.LoginPage;
+import com.agp.qa.util.TestUtil;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CommercialUploadRegistrationFormDocumentTest extends TestBase {
+public class CommercialConsumerApplicationApprovalTest extends TestBase {
 
     LoginPage loginPage;
     DashboardPage dashboardPage;
@@ -20,9 +28,13 @@ public class CommercialUploadRegistrationFormDocumentTest extends TestBase {
 
     CommercialUploadRegistrationFormDocument commercialUploadRegistrationFormDocument;
 
+    CommercialConsumerRegistrationReceipt commercialConsumerRegistrationReceipt;
+
+    CommercialConsumerApplicationApproval commercialConsumerApplicationApproval;
 
 
-    public CommercialUploadRegistrationFormDocumentTest(){
+
+    public CommercialConsumerApplicationApprovalTest(){
         super();
     }
 
@@ -44,13 +56,18 @@ public class CommercialUploadRegistrationFormDocumentTest extends TestBase {
 //        commercialConsumerRegistration1.fetchDataFromExcelForNewCommercialRegistration1();
 //
 //        Thread.sleep(3000);
-        dashboardCommercialNewConnection.commercialUploadRegistrationFormDocument();
+//        dashboardCommercialNewConnection.commercialUploadRegistrationFormDocument();
+//
+//        Thread.sleep(3000);
+//        commercialUploadRegistrationFormDocument = new CommercialUploadRegistrationFormDocument();
+//        commercialUploadRegistrationFormDocument.uploadRegistrationFormDocumentAddAndVerifyData();
+//
+//        Thread.sleep(3000);
+        dashboardCommercialNewConnection.commercialCustomerApplicationApprovalCommercialClick();
 
         Thread.sleep(3000);
-        commercialUploadRegistrationFormDocument = new CommercialUploadRegistrationFormDocument();
-        commercialUploadRegistrationFormDocument.uploadRegistrationFormDocumentAddAndVerifyData();
-
-
+        commercialConsumerApplicationApproval = new CommercialConsumerApplicationApproval();
+        commercialConsumerApplicationApproval.approveCustomerForTheGasInProcess();
 
     }
 
@@ -58,6 +75,4 @@ public class CommercialUploadRegistrationFormDocumentTest extends TestBase {
 //    public void tearDown(){
 //        driver.quit();
 //    }
-
-
 }

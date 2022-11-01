@@ -1,7 +1,9 @@
 package com.agp.qa.test.listReport;
 
 import com.agp.qa.base.TestBase;
+import com.agp.qa.pages.dashboard.DashboardListReport;
 import com.agp.qa.pages.dashboard.DashboardPage;
+import com.agp.qa.pages.listReport.ListReportConsumerRegistrationReport;
 import com.agp.qa.pages.login.LoginPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +14,10 @@ public class ListReportConsumerRegistrationReportTest extends TestBase {
     LoginPage loginPage;
     DashboardPage dashboardPage;
 
+    DashboardListReport dashboardListReport;
+
+    ListReportConsumerRegistrationReport listReportConsumerRegistrationReport;
+
     public ListReportConsumerRegistrationReportTest(){
         super();
     }
@@ -21,17 +27,28 @@ public class ListReportConsumerRegistrationReportTest extends TestBase {
         initialization();
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
+        dashboardPage = loginPage.login(prop.getProperty("username"),prop.getProperty("password"));
+        dashboardPage.dashboardVerify();
+        dashboardPage.listReportClick();
+        dashboardListReport = new DashboardListReport();
+        dashboardListReport.listReportConsumerRegistrationReportClick();
+
     }
 
 
     @Test
-    public void loginTest2() throws InterruptedException {
-        dashboardPage = loginPage.login1(prop.getProperty("username"),prop.getProperty("password"));
+    public void fetchingConsumerNumberData () throws InterruptedException {
+        listReportConsumerRegistrationReport = new ListReportConsumerRegistrationReport();
+        listReportConsumerRegistrationReport.captureConsumerNumberFromConsumerRegistrationReport();
+
+
+
+
     }
 
-    @AfterMethod
-    public void tearDown(){
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        driver.quit();
+//    }
 
 }

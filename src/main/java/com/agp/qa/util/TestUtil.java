@@ -21,10 +21,11 @@ import java.awt.AWTException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 
 public class TestUtil extends TestBase {
@@ -194,7 +195,7 @@ public class TestUtil extends TestBase {
         }
     }
 
-    public static void selectMethod(WebElement webElement, String value){
+    public static void selectMethodExcelString(WebElement webElement, String value){
         try {
             Select select = new Select(webElement);
             select.selectByVisibleText(value);
@@ -202,6 +203,14 @@ public class TestUtil extends TestBase {
             System.out.println(e.getMessage());
         }
     }
+//    public static void selectMethod(WebElement webElement){
+//        try {
+//            Select select = new Select(webElement);
+//            select.selectByVisibleText();
+//        }catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//    }
 
 
     public static void javaScriptClick(WebElement webElement) {
@@ -307,8 +316,49 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
         } catch (NoSuchElementException e) {
             System.out.println("Bad Luck! No Such Element Found for the Locator " + clearElement);
         }
-
     }
+
+    public static void useTabElementThroughKeys(WebElement clearElement) {
+        try {
+            clearElement.sendKeys(Keys.CONTROL, "a",Keys.TAB);
+        } catch (NoSuchElementException e) {
+            System.out.println("Bad Luck! No Such Element Found for the Locator " + clearElement);
+        }
+    }
+
+    // Date Format  with Slash
+//    public static Object fetchCurrentDateFormatSlash() {
+//        try {
+//
+//            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//            LocalDateTime now = LocalDateTime.now();
+//            String dateInString = dtf.format(now);
+//
+//
+//        } catch (NoSuchElementException e) {
+//            System.out.println("Bad Luck! fetchCurrentDateFormatSlash not Fetch " );
+//        }
+//
+//        return dateInString;
+//
+//    }
+
+    // Date Format  with Hiphen
+
+//    public static Object fetchCurrentDateFormatHiphen() {
+//        try {
+//            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//            LocalDateTime now = LocalDateTime.now();
+//            String dateInString = dtf.format(now);
+//
+//        } catch (NoSuchElementException e) {
+//            System.out.println("Bad Luck! fetchCurrentDateFormatHiphen not Fetch " );
+//        }
+//
+//        return dateInString;
+//    }
+
+
 
     public static void keyboradPressEsc() {
         try {

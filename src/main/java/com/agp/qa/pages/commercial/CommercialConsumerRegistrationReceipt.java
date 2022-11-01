@@ -178,8 +178,8 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
     @FindBy(xpath = "//h2[normalize-space()='Success!!']")
     public static WebElement comConsumerRegistrationPaymentReceiptSuccessToasterMessagePopUp;
 
-    @FindBy(xpath = "//p[normalize-space()='Record Saved Succssfully']")
-//    @FindBy(xpath = "//p[normalize-space()='Record Saved Successfully']")
+//    @FindBy(xpath = "//p[normalize-space()='Record Saved Succssfully']")
+    @FindBy(xpath = "//p[normalize-space()='Record Saved Successfully']")
     public static WebElement comConsumerRegistrationPaymentReceiptRecordSavedSuccessfullyPopUp;
 
     @FindBy(xpath = "//button[@class='confirm']")
@@ -517,6 +517,21 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
             }
 
             driver.switchTo().window(MainWindow);
+
+//            String current_window = driver.getWindowHandle();
+//            Set<String> all_Windows = driver.getWindowHandles();
+//            Iterator<String> i = all_Windows.iterator();
+//            while(i.hasNext()){
+//                String child_window = i.next();
+//                if(!child_window.equalsIgnoreCase(current_window)){
+//                    driver.switchTo().window(child_window);
+//                    System.out.println("The current window is "+child_window);
+//                    // close() method closes the child window in focus, the parent window is still open
+//                    driver.close();
+//                } else {
+//                    System.out.println("No other window open");
+//                }
+//            }
 
 
 
