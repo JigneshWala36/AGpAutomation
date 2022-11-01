@@ -52,8 +52,8 @@ public class CommercialConsumerRegistrationReceiptTest extends TestBase {
 //        Thread.sleep(3000);
 //        commercialUploadRegistrationFormDocument = new CommercialUploadRegistrationFormDocument();
 //        commercialUploadRegistrationFormDocument.uploadRegistrationFormDocumentAddAndVerifyData();
-
-        Thread.sleep(3000);
+//
+//        Thread.sleep(3000);
         dashboardCommercialNewConnection.commercialConsumerRegistrationReceiptClick();
 
         Thread.sleep(3000);
