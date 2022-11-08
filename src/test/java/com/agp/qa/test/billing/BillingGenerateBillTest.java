@@ -11,6 +11,7 @@ import com.agp.qa.pages.login.LoginPage;
 import com.agp.qa.util.TestUtil;
 import com.mongodb.DB;
 import org.openxml4j.document.wordprocessing.model.table.TableBorder;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,11 +37,11 @@ public class BillingGenerateBillTest extends TestBase {
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
-        initialization();
-        loginPage = new LoginPage();
+//        initialization();
+//        loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
-        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-        dashboardPage.dashboardVerify();
+//        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+//        dashboardPage.dashboardVerify();
 //        dashboardPage.gasInClick();
 //        dashboardGasIn = new DashboardGasIn();
 //        dashboardGasIn.gasInRouteAndMeterAssignmentFormClick();
@@ -66,10 +67,11 @@ public class BillingGenerateBillTest extends TestBase {
 
     }
 
-//    @AfterMethod
-//    public void tearDown(){
+    @AfterMethod
+    public void tearDown(){
+        TestUtil.waiting(1000);
 //        driver.quit();
-//    }
+    }
 
 }
 

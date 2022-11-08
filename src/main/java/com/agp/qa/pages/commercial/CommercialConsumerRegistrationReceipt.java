@@ -349,6 +349,9 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 //            TestUtil.selectMethod(comConsumerRegistrationPaymentReceiptReceiptDateInput,"Cash");
 
             TestUtil.waiting(1000);
+            comConsumerRegistrationPaymentReceiptPayableAmountHeader.click();
+            TestUtil.scrollTo(comConsumerRegistrationPaymentReceiptPayableAmountHeader);
+            TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPayableAmountHeader);
             TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPayableAmountInput);
@@ -481,8 +484,8 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptRecordSavedSuccessfullyPopUp);
             TestUtil.waiting(1000);
 
-            String MainWindow=driver.getWindowHandle();
-            Set<String> s1=driver.getWindowHandles();
+//            String MainWindow=driver.getWindowHandle();
+//            Set<String> s1=driver.getWindowHandles();
 
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConfirmPopUpBTN);
             TestUtil.waiting(1000);
@@ -494,23 +497,28 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
 
 
-//            String MainWindow=driver.getWindowHandle();
-//            Set<String> s1=driver.getWindowHandles();
+            TestUtil.waiting(1000);
+//            TestUtil.keyboradActionMethodPressEsc();
+//            TestUtil.waiting(5000);
+//            TestUtil.keyboradActionRobotPressEsc();
+//            TestUtil.waiting(3000);
+
+            String MainWindow=driver.getWindowHandle();
+            System.out.println(MainWindow);
+            Set<String> s1=driver.getWindowHandles();
             Iterator<String> i1=s1.iterator();
             while(i1.hasNext())
             {
                 String ChildWindow=i1.next();
-
                 if(!MainWindow.equalsIgnoreCase(ChildWindow))
                 {
-
-                    TestUtil.waiting(3000);
-                    TestUtil.keyboradPressEsc();
-                    TestUtil.waiting(2000);
-
+//                    TestUtil.waiting(5000);
+//                    TestUtil.keyboradActionMethodPressEsc();
+//                    TestUtil.waiting(5000);
+//                    TestUtil.keyboradActionRobotPressEsc();
+//                    TestUtil.waiting(3000);
                     // Switching to Child window
                     driver.switchTo().window(ChildWindow);
-
                     // Closing the Child Window.
                     driver.close();
                 }

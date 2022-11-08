@@ -2,11 +2,13 @@ package com.agp.qa.test.commercial;
 
 import com.agp.qa.base.TestBase;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistration;
+import com.agp.qa.pages.commercial.CommercialConsumerRegistration1;
 import com.agp.qa.pages.dashboard.DashboardCommercialNewConnection;
 import com.agp.qa.pages.dashboard.DashboardDomesticNewConnection;
 import com.agp.qa.pages.dashboard.DashboardPage;
 import com.agp.qa.pages.domestic.DomesticConsumerAgreementPrintPage;
 import com.agp.qa.pages.login.LoginPage;
+import com.agp.qa.util.TestUtil;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,26 +28,28 @@ public class CommercialConsumerRegistrationTest extends TestBase {
 
     @BeforeMethod
     public void setUp() {
-        initialization();
-        loginPage = new LoginPage();
+//        initialization();
+//        loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
-        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-        dashboardPage.dashboardVerify();
+//        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+//        dashboardPage.dashboardVerify();
         dashboardPage.commercialNewConnectionClick();
         dashboardCommercialNewConnection = new DashboardCommercialNewConnection();
         dashboardCommercialNewConnection.commercialConsumerRegistrationClick();
     }
 
     @Test(priority = 1)
-    public void consumerAgreementPrintTest() throws InterruptedException {
+    public void addingNewConsumerForCommercial() throws InterruptedException {
         commercialConsumerRegistration = new CommercialConsumerRegistration();
         commercialConsumerRegistration.fetchDataFromExcelForNewCommercialRegistration();
+
 
     }
 
     @AfterMethod
     public void tearDown(){
-        driver.quit();
+        TestUtil.waiting(2000);
+//        driver.quit();
     }
 
 

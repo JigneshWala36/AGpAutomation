@@ -35,8 +35,21 @@ public class CommercialConsumerApplicationApproval extends TestBase {
     @FindBy(xpath = "//th[contains(text(),'Approve')]")
     public static WebElement comConsumerApplicationApprovalApproveTableHeader;
 
-    @FindBy(xpath = "//tbody/tr[1]/td[5]")
+    @FindBy(xpath = "(//i[@class='fa fa-check'])[1]")
     public static WebElement comConsumerApplicationApprovalApproveIconClick;
+
+    @FindBy(xpath = "//h2[normalize-space()='Are you sure, you want to Approve Agreement?']")
+    public static WebElement comConsumerApplicationApprovalApprovePopUpMessageHeader;
+
+    @FindBy(xpath = "//button[@class='cancel']")
+    public static WebElement comConsumerApplicationApprovalApprovePopUpCancelBtn;
+
+    @FindBy(xpath = "//button[@class='confirm']")
+    public static WebElement comConsumerApplicationApprovalApprovePopUpApproveBtn;
+
+
+
+
 
     public void approveCustomerForTheGasInProcess() {
 
@@ -66,14 +79,14 @@ public class CommercialConsumerApplicationApproval extends TestBase {
             TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerApplicationApprovalApplicationNoVerifyInTable);
             TestUtil.waiting(1000);
-            Assert.assertEquals(Application_No, comConsumerApplicationApprovalApplicationNoVerifyInTable.getAttribute("value"), "Application_No Does Not Match");
+            Assert.assertEquals(Application_No, comConsumerApplicationApprovalApplicationNoVerifyInTable.getText(), "Application_No Does Not Match");
 
             TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerApplicationApprovalCustomerNameTableHeader);
             TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerApplicationApprovalCustomerNameVerifyInTable);
             TestUtil.waiting(1000);
-            Assert.assertEquals(NameOfEstablishment, comConsumerApplicationApprovalCustomerNameVerifyInTable.getAttribute("value"), "Organisation Name Does Not Match");
+            Assert.assertEquals(NameOfEstablishment.toUpperCase(), comConsumerApplicationApprovalCustomerNameVerifyInTable.getText(), "Organisation Name Does Not Match");
 
             TestUtil.waiting(1000);
             TestUtil.scrollTo(comConsumerApplicationApprovalApproveTableHeader);
@@ -81,7 +94,18 @@ public class CommercialConsumerApplicationApproval extends TestBase {
             TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerApplicationApprovalApproveIconClick);
             TestUtil.waiting(1000);
-//            comConsumerApplicationApprovalApproveIconClick.click();
+            comConsumerApplicationApprovalApproveIconClick.click();
+            TestUtil.waiting(2000);
+
+            TestUtil.waiting(1000);
+            TestUtil.highlightElement(comConsumerApplicationApprovalApprovePopUpMessageHeader);
+            TestUtil.waiting(1000);
+            TestUtil.highlightElement(comConsumerApplicationApprovalApprovePopUpCancelBtn);
+
+            TestUtil.waiting(1000);
+            TestUtil.highlightElement(comConsumerApplicationApprovalApprovePopUpApproveBtn);
+            TestUtil.waiting(1000);
+            comConsumerApplicationApprovalApprovePopUpApproveBtn.click();
 
 
         }

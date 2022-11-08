@@ -7,6 +7,8 @@ import com.agp.qa.pages.commercial.CommercialUploadRegistrationFormDocument;
 import com.agp.qa.pages.dashboard.DashboardCommercialNewConnection;
 import com.agp.qa.pages.dashboard.DashboardPage;
 import com.agp.qa.pages.login.LoginPage;
+import com.agp.qa.util.TestUtil;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -31,18 +33,19 @@ public class CommercialConsumerRegistrationReceiptTest extends TestBase {
 
     @BeforeMethod
     public void setUp() {
-        initialization();
-        loginPage = new LoginPage();
+//        initialization();
+//        loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
-        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-        dashboardPage.dashboardVerify();
-        dashboardPage.commercialNewConnectionClick();
+//        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+//        dashboardPage.dashboardVerify();
+//        dashboardPage.commercialNewConnectionClick();
         dashboardCommercialNewConnection = new DashboardCommercialNewConnection();
 //        dashboardCommercialNewConnection.commercialConsumerRegistrationClick();
+        dashboardCommercialNewConnection.commercialConsumerRegistrationReceiptClick();
     }
 
     @Test(priority = 1)
-    public void uploadRegistrationFormDocument() throws InterruptedException {
+    public void verifyAmountForRegistrationOfNewCommercialAndCreatingReceipt() throws InterruptedException {
 //        commercialConsumerRegistration1 = new CommercialConsumerRegistration1();
 //        commercialConsumerRegistration1.fetchDataFromExcelForNewCommercialRegistration1();
 //
@@ -54,16 +57,18 @@ public class CommercialConsumerRegistrationReceiptTest extends TestBase {
 //        commercialUploadRegistrationFormDocument.uploadRegistrationFormDocumentAddAndVerifyData();
 //
 //        Thread.sleep(3000);
-        dashboardCommercialNewConnection.commercialConsumerRegistrationReceiptClick();
+//        dashboardCommercialNewConnection.commercialConsumerRegistrationReceiptClick();
 
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
+        TestUtil.waiting(3000);
         commercialConsumerRegistrationReceipt = new CommercialConsumerRegistrationReceipt();
         commercialConsumerRegistrationReceipt.paymentReceiptVerifyAmount();
 
     }
 
-//    @AfterMethod
-//    public void tearDown(){
+    @AfterMethod
+    public void tearDown(){
+        TestUtil.waiting(3000);
 //        driver.quit();
-//    }
+    }
 }
