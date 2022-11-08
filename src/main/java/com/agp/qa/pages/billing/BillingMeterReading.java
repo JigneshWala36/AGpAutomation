@@ -157,57 +157,57 @@ public class BillingMeterReading extends TestBase {
 
             String OpeningReading = Xls_Reader.getCellData("Commercial", "Opening Reading", rowNum);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingMainHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingConsumerNumberHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingConsumerNumberInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.sendKeyNormalExcel(billingMeterReadingConsumerNumberInput, ConsumerNo);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingCycleNoHeader);
             billingMeterReadingCycleNoHeader.click();
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingCycleNoInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(Cycle, billingMeterReadingCycleNoInput.getAttribute("value"), "Consumer No Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingSearchBtn);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingMeterReadingSearchBtn.click();
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingCustomerPersonalDetailsHeader);
             billingMeterReadingCustomerPersonalDetailsHeader.click();
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingConsumerNameHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingConsumerNameInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(NameOfEstablishment.toUpperCase(), billingMeterReadingConsumerNameInput.getAttribute("value"), "Name Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingAccountTypeHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingAccountTypeInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(AccountType, billingMeterReadingAccountTypeInput.getAttribute("value"), "Account Type Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingBillNoHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingBillNoInput);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingBillDateHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingBillDateInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             LocalDateTime now = LocalDateTime.now();
             String dateInString = dtf.format(now);
@@ -216,75 +216,75 @@ public class BillingMeterReading extends TestBase {
 
 //            Assert.assertEquals(TestUtil.fetchCurrentDateFormatHiphen(),billingMeterReadingBillDateInput.getAttribute("value"), "Date Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingWardHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingWardInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(WardNo, billingMeterReadingWardInput.getAttribute("value"), "Ward No Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.scrollTo(billingMeterReadingMeterReadingEntryHeader);
             TestUtil.highlightElement(billingMeterReadingMeterReadingEntryHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingDateHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingMeterReadingDateInput.click();
             TestUtil.sendKeyNormalExcel(billingMeterReadingDateInput, MeterReadingDate);
-//            Thread.sleep(1000);
+//            Thread.sleep(500);
             billingMeterReadingDateSelect.click();
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingMeterReadingMeterReadingEntryHeader.click();
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingMeterStatusHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingMeterStatusSelect);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.selectMethodExcelString(billingMeterReadingMeterStatusSelect, MeterStatus);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingPreviousReadingDateHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingPreviousReadingDateInput);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingPreviousReadingHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingPreviousReadingInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(OpeningReading, billingMeterReadingPreviousReadingInput.getAttribute("value"), "Opening Reading Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 
             TestUtil.highlightElement(billingMeterReadingCurrentReadingHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingCurrentReadingInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.sendKeyNormalExcel(billingMeterReadingCurrentReadingInput, CurrentReading);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingMeterReadingTotalUnitUsedForCurrentBillHeader.click();
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingTotalUnitUsedForCurrentBillHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingTotalUnitUsedForCurrentBillInput);
             // Verification Pending for Above Total Used
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingPreviousBalanceHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingPreviousBalanceInput);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingClearBtn);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingMeterReadingSaveBtn);
 
-            TestUtil.waiting(2000);
+            TestUtil.waiting(500);
             billingMeterReadingSaveBtn.click();
 
 

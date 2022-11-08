@@ -64,47 +64,47 @@ public class CommercialConsumerApplicationApproval extends TestBase {
 
             String NameOfEstablishment = reader.getCellData("Commercial", "Name of Establishment", rowNum);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalMainHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalApplicationNoInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.sendKeyNormalExcel(comConsumerApplicationApprovalApplicationNoInput, Application_No);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             comConsumerApplicationApprovalMainHeader.click();
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalApplicationNoTableHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalApplicationNoVerifyInTable);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(Application_No, comConsumerApplicationApprovalApplicationNoVerifyInTable.getText(), "Application_No Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalCustomerNameTableHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalCustomerNameVerifyInTable);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(NameOfEstablishment.toUpperCase(), comConsumerApplicationApprovalCustomerNameVerifyInTable.getText(), "Organisation Name Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.scrollTo(comConsumerApplicationApprovalApproveTableHeader);
             TestUtil.highlightElement(comConsumerApplicationApprovalApproveTableHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalApproveIconClick);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             comConsumerApplicationApprovalApproveIconClick.click();
             TestUtil.waiting(2000);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalApprovePopUpMessageHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalApprovePopUpCancelBtn);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerApplicationApprovalApprovePopUpApproveBtn);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             comConsumerApplicationApprovalApprovePopUpApproveBtn.click();
 
 

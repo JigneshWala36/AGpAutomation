@@ -39,51 +39,51 @@ public class DomesticConsumerAgreementPrintPage extends TestBase {
         String ConsumerName;
         try {
 
-            TestUtil.waiting(3000);
+            TestUtil.waiting(1500);
             TestUtil.highlightElement(domesticConsumerAgreementPrintMainHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementTableRow1ApplicationNo);
             ApplicationNo = TestUtil.getTextFromUI(domesticConsumerAgreementTableRow1ApplicationNo);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementSearchInput);
             domesticConsumerAgreementSearchInput.sendKeys(ApplicationNo);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementSearchInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(domesticConsumerAgreementTableRow1ApplicationNo.getText(), ApplicationNo, "Application No Not matched");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementTableRow1ApplicationNo);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 
             // Clearing the Application No
 
             TestUtil.clearElementThroughKeys(domesticConsumerAgreementSearchInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementSearchInput);
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementTableRow1ConsumerNumber);
             ConsumerName = TestUtil.getTextFromUI(domesticConsumerAgreementTableRow1ConsumerNumber);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementSearchInput);
             domesticConsumerAgreementSearchInput.sendKeys(ConsumerName);
-            TestUtil.waiting(2000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementSearchInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(domesticConsumerAgreementTableRow1ConsumerNumber.getText(), ConsumerName, "Application No Not matched");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementTableRow1ConsumerNumber);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementSearchInput);
 //            TestUtil.clearElement(domesticConsumerAgreementSearchInput);
             TestUtil.clearElementThroughKeys(domesticConsumerAgreementSearchInput);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.click(domesticConsumerAgreementTableRow1ConsumerPrintIconBtn);
-            TestUtil.waiting(5000);
+            TestUtil.waiting(2500);
 
 
 //            Assert.assertEquals(editCompanyStep1NameInput.getAttribute("value"),data.getProperty("addCompanyStep1NameInput1"),"Edit company Name not same");
@@ -98,12 +98,12 @@ public class DomesticConsumerAgreementPrintPage extends TestBase {
     public String getApplicationNoFromTheFirstRow() {
         String firstRowApplicationNo = null;
         try {
-            TestUtil.waiting(2000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementPrintMainHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(domesticConsumerAgreementTableRow1ApplicationNo);
             firstRowApplicationNo = TestUtil.getTextFromUI(domesticConsumerAgreementTableRow1ApplicationNo);
-            TestUtil.waiting(3000);
+            TestUtil.waiting(1500);
 
         } catch (Exception e) {
             System.out.println("No Data Found in the Consumer Agreement Print Page");

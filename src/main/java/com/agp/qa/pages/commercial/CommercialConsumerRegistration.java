@@ -549,7 +549,7 @@ public class CommercialConsumerRegistration extends TestBase {
             TestUtil.highlightElement(comConsumerRegistrationAccountTypeHeader);
             Thread.sleep(500);
             TestUtil.selectMethodExcelString(comConsumerRegistrationAccountTypeDropDownClick, AccountTypeSelect);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             TestUtil.highlightElement(comConsumerRegistrationDateHeader);
             Thread.sleep(500);
@@ -615,29 +615,29 @@ public class CommercialConsumerRegistration extends TestBase {
             TestUtil.highlightElement(comConsumerRegistrationCityHeader);
             Thread.sleep(500);
             TestUtil.selectMethodExcelString(comConsumerRegistrationCityDropDownClick, City);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             TestUtil.highlightElement(comConsumerRegistrationAreaNameHeader);
             Thread.sleep(500);
             TestUtil.selectMethodExcelString(comConsumerRegistrationAreaNameDropDownClick, AreaName);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             TestUtil.highlightElement(comConsumerRegistrationPincodeHeader);
             Thread.sleep(500);
             TestUtil.selectMethodExcelString(comConsumerRegistrationPincodeDropDownClick, Pincode);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             TestUtil.highlightElement(comConsumerRegistrationNameTypeHeader);
             Thread.sleep(500);
             TestUtil.selectMethodExcelString(comConsumerRegistrationNameTypeDropDownClick, TypeOfEstablishment);
             String NonCommercialNameType = comConsumerRegistrationNameTypeDropDownClick.getText();
             System.out.println(comConsumerRegistrationNameTypeDropDownClick.getText());
-            Thread.sleep(1000);
+            Thread.sleep(500);
             if (NonCommercialNameType.equals("--Select Type of Establishment--\n" +
                     "Non-Commercial (Please Specify)")) {
                 comConsumerRegistrationNonCommercialNameTypeInputField.sendKeys("Ayngaran Foundation");
             }
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             TestUtil.highlightElement(comConsumerRegistrationNGSCMHeader);
             Thread.sleep(500);
@@ -750,15 +750,15 @@ public class CommercialConsumerRegistration extends TestBase {
             TestUtil.highlightElement(comConsumerRegistrationCancelBtn);
 //                comConsumerRegistrationCancelBtn.click();
 
-            Thread.sleep(1000);
+            Thread.sleep(500);
             TestUtil.highlightElement(comConsumerRegistrationSaveBtn);
 
-            Thread.sleep(1000);
+            Thread.sleep(500);
             comConsumerRegistrationSaveBtn.click();
 
-            Thread.sleep(2000);
-            TestUtil.highlightElement(comConsumerRegistrationSuccessMessage);
             Thread.sleep(1000);
+            TestUtil.highlightElement(comConsumerRegistrationSuccessMessage);
+            Thread.sleep(500);
 
             // Splitting the String and Capturing the Application No From the String -> Using Split method
 
@@ -775,18 +775,18 @@ public class CommercialConsumerRegistration extends TestBase {
             for (int statusRowDataAdd = rowNum; statusRowDataAdd <= rowCount; statusRowDataAdd ++) {
                 System.out.println(rowCount);
 
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 //  Fetching Data in the Loop
 
                 String.valueOf(reader.setCellData("Commercial","Application No",statusRowDataAdd,uploadApplicationNo));
 
             }
 
-            Thread.sleep(1000);
+            Thread.sleep(500);
             TestUtil.highlightElement(comConsumerRegistrationSuccessConfirmBtn);
-            Thread.sleep(1000);
+            Thread.sleep(500);
             comConsumerRegistrationSuccessConfirmBtn.click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
         }
 

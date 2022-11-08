@@ -80,72 +80,72 @@ public class GasInRouteAndMeterApprovalForm extends TestBase {
 
             String WardNoSelect = Xls_Reader.getCellData("Commercial", "Ward No Select", rowNum);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormMainHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormWardHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormWardSelect);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.selectMethodExcelString(gasInRouteAndMeterApprovalFormWardSelect, WardNoSelect);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormEnterConsumerNumberHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormEnterConsumerNumberInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.sendKeyNormalExcel(gasInRouteAndMeterApprovalFormEnterConsumerNumberInput, ConsumerNo);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormExportToExcelBtn);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormResetBtn);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormSearchBtn);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             gasInRouteAndMeterApprovalFormSearchBtn.click();
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormConsumerNumberTableColumnHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormConsumerNumberTableSearchCustomerVerifyData);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(ConsumerNo, gasInRouteAndMeterApprovalFormConsumerNumberTableSearchCustomerVerifyData.getText(), "Consumer No Does Not Match");
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.scrollTo(gasInRouteAndMeterApprovalFormApproveTableColumnHeader);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormApproveTableColumnHeader);
 
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormConsumerNumberTableSearchCustomerApproveBtn);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormConsumerNumberTableSearchCustomerApproveBtn);
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.scrollTo(gasInRouteAndMeterApprovalFormApproveSelectedBtn);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormApproveSelectedBtn);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             gasInRouteAndMeterApprovalFormConsumerNumberTableSearchCustomerApproveBtn.click();
             TestUtil.waiting(3000);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormApprovePopUpMessage);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormApprovePopUpNoBtn);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterApprovalFormApprovePopUpApproveBtn);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             gasInRouteAndMeterApprovalFormApprovePopUpApproveBtn.click();
-            TestUtil.waiting(5000);
+            TestUtil.waiting(2500);
 
 
 

@@ -47,15 +47,15 @@ public class LoginPage extends TestBase {
             TestUtil.highlightElement(agpLoginPageUserNameHeader);
 //            agpLoginPageUserNameInput.clear();
             TestUtil.highlightElement(agpLoginPageUserNameInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             agpLoginPageUserNameInput.sendKeys(ur);
             TestUtil.highlightElement(agpLoginPagePasswordHeader);
 //            agpLoginPagePasswordInput.clear();
             TestUtil.highlightElement(agpLoginPagePasswordInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             agpLoginPagePasswordInput.sendKeys(pwd);
             TestUtil.highlightElement(agpLoginPageLoginButton);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             agpLoginPageLoginButton.click();
             TestUtil.waiting(3000);
         } catch (Exception e) {
