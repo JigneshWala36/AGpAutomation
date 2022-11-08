@@ -5,6 +5,8 @@ import com.agp.qa.pages.dashboard.DashboardGasIn;
 import com.agp.qa.pages.dashboard.DashboardPage;
 import com.agp.qa.pages.gasIn.GasInRouteAndMeterAssignmentForm;
 import com.agp.qa.pages.login.LoginPage;
+import com.agp.qa.util.TestUtil;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -25,11 +27,11 @@ public class GasInRouteAndMeterAssignmentFormTest extends TestBase {
 
     @BeforeMethod
     public void setUp(){
-        initialization();
-        loginPage = new LoginPage();
+//        initialization();
+//        loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
-        dashboardPage = loginPage.login(prop.getProperty("username"),prop.getProperty("password"));
-        dashboardPage.dashboardVerify();
+//        dashboardPage = loginPage.login(prop.getProperty("username"),prop.getProperty("password"));
+//        dashboardPage.dashboardVerify();
         dashboardPage.gasInClick();
         dashboardGasIn = new DashboardGasIn();
         dashboardGasIn.gasInRouteAndMeterAssignmentFormClick();
@@ -48,9 +50,10 @@ public class GasInRouteAndMeterAssignmentFormTest extends TestBase {
 
     }
 
-//    @AfterMethod
-//    public void tearDown(){
+    @AfterMethod
+    public void tearDown(){
+        TestUtil.waiting(3000);
 //        driver.quit();
-//    }
+    }
 
 }

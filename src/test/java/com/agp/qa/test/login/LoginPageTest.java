@@ -28,21 +28,24 @@ public class LoginPageTest extends TestBase {
         dashboardPage = loginPage.login(prop.getProperty("username"),prop.getProperty("password"));
     }
 
-    @Test(priority = 2)
-    public void loginTest1() throws InterruptedException {
-        dashboardPage = loginPage.login1(prop.getProperty("username"),prop.getProperty("password"));
-    }
-
-    @Test(priority = 2)
-    public void loginTest2() throws InterruptedException {
-
-
+//    @Test(priority = 2)
+//    public void loginTest1() throws InterruptedException {
 //        dashboardPage = loginPage.login1(prop.getProperty("username"),prop.getProperty("password"));
-    }
+//    }
+//
+//    @Test(priority = 2)
+//    public void loginTest2() throws InterruptedException {
+//
+//
+////        dashboardPage = loginPage.login1(prop.getProperty("username"),prop.getProperty("password"));
+//    }
 
     @AfterMethod
+
     public void tearDown(){
-        driver.quit();
+        dashboardPage.dashboardVerify();
+//        driver.quit();
+
     }
 
 

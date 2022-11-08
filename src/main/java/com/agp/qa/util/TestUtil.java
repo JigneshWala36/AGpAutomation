@@ -26,6 +26,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 
 public class TestUtil extends TestBase {
@@ -358,17 +359,36 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
 //        return dateInString;
 //    }
 
+    public static Integer generateRandomNumber(){
+        Random random = new Random();
+        Integer randomNumberGenerated = random.nextInt();
+        return randomNumberGenerated;
+    }
 
 
-    public static void keyboradPressEsc() {
+
+    public static void keyboradActionMethodPressEsc() {
+        try {
+
+//            Robot r = new Robot();
+//            r.keyPress(KeyEvent.VK_ESCAPE);
+//            r.keyRelease(KeyEvent.VK_ESCAPE);
+            Actions action = new Actions(driver);
+            action.sendKeys(Keys.ESCAPE).build().perform();
+        } catch (Exception ae) {
+            ae.printStackTrace();
+        }
+
+    }
+
+    public static void keyboradActionRobotPressEsc() {
         try {
 
             Robot r = new Robot();
             r.keyPress(KeyEvent.VK_ESCAPE);
             r.keyRelease(KeyEvent.VK_ESCAPE);
-//            Actions action = new Actions(driver);
-//            action.sendKeys(Keys.ESCAPE).build().perform();
-        } catch (AWTException ae) {
+
+        } catch (Exception ae) {
             ae.printStackTrace();
         }
 

@@ -1,7 +1,6 @@
 package com.agp.qa.test.commercial;
 
 import com.agp.qa.base.TestBase;
-import com.agp.qa.pages.billing.BillingGenerateBill;
 import com.agp.qa.pages.commercial.CommercialConsumerApplicationApproval;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistration1;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistrationReceipt;
@@ -14,6 +13,7 @@ import com.agp.qa.pages.gasIn.GasInRouteAndMeterApprovalForm;
 import com.agp.qa.pages.gasIn.GasInRouteAndMeterAssignmentForm;
 import com.agp.qa.pages.login.LoginPage;
 import com.agp.qa.util.TestUtil;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -40,18 +40,19 @@ public class CommercialConsumerApplicationApprovalTest extends TestBase {
 
     @BeforeMethod
     public void setUp() {
-        initialization();
-        loginPage = new LoginPage();
-        dashboardPage = new DashboardPage();
-        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-        dashboardPage.dashboardVerify();
-        dashboardPage.commercialNewConnectionClick();
+//        initialization();
+//        loginPage = new LoginPage();
+//        dashboardPage = new DashboardPage();
+//        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+//        dashboardPage.dashboardVerify();
+//        dashboardPage.commercialNewConnectionClick();
         dashboardCommercialNewConnection = new DashboardCommercialNewConnection();
+        dashboardCommercialNewConnection.commercialCustomerApplicationApprovalCommercialClick();
 //        dashboardCommercialNewConnection.commercialConsumerRegistrationClick();
     }
 
     @Test(priority = 1)
-    public void uploadRegistrationFormDocument() throws InterruptedException {
+    public void approvalOfNewCommercialCustomerForGasIn() throws InterruptedException {
 //        commercialConsumerRegistration1 = new CommercialConsumerRegistration1();
 //        commercialConsumerRegistration1.fetchDataFromExcelForNewCommercialRegistration1();
 //
@@ -63,16 +64,17 @@ public class CommercialConsumerApplicationApprovalTest extends TestBase {
 //        commercialUploadRegistrationFormDocument.uploadRegistrationFormDocumentAddAndVerifyData();
 //
 //        Thread.sleep(3000);
-        dashboardCommercialNewConnection.commercialCustomerApplicationApprovalCommercialClick();
+//        dashboardCommercialNewConnection.commercialCustomerApplicationApprovalCommercialClick();
 
-        Thread.sleep(3000);
+        TestUtil.waiting(3000);
         commercialConsumerApplicationApproval = new CommercialConsumerApplicationApproval();
         commercialConsumerApplicationApproval.approveCustomerForTheGasInProcess();
 
     }
 
-//    @AfterMethod
-//    public void tearDown(){
+    @AfterMethod
+    public void tearDown(){
+        TestUtil.waiting(3000);
 //        driver.quit();
-//    }
+    }
 }

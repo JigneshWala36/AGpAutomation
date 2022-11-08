@@ -178,6 +178,7 @@ public class CommercialUploadRegistrationFormDocument extends TestBase {
             Assert.assertEquals(PhoneNo, comUploadRegistrationFormDocumentCustomerPhoneAlternateMobileNumberInput.getAttribute("value"), "Phone No Does Not Match");
 
             TestUtil.waiting(1000);
+            TestUtil.scrollTo(comUploadRegistrationFormDocumentCustomerMobileHeader);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerMobileHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerMobileInput);

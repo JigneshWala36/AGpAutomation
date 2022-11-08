@@ -72,6 +72,10 @@ public class CommercialConsumerRegistration extends TestBase {
     @FindBy(xpath = "//input[@id='TransactionDate']")
     public static WebElement comConsumerRegistrationDateInput;
 
+    @FindBy(xpath = "//tbody/tr[2]/td[3]")
+    public static WebElement comConsumerRegistrationDateSelect;
+
+
     @FindBy(xpath = "//label[contains(text(),'Please Enter transaction date')]")
     public static WebElement comConsumerRegistrationDateErrorMessage;
 
@@ -125,6 +129,9 @@ public class CommercialConsumerRegistration extends TestBase {
 
     @FindBy(xpath = "//input[@id='DateOfIncorporation']")
     public static WebElement comConsumerRegistrationDateIncorporationInput;
+
+    @FindBy(xpath = "//tbody/tr[2]/td[3]")
+    public static WebElement comConsumerRegistrationDateIncorporationSelect;
 
     @FindBy(xpath = "//label[@id='DateOfIncorporation-error']")
     public static WebElement comConsumerRegistrationDateIncorporationErrorMessage;
@@ -349,6 +356,11 @@ public class CommercialConsumerRegistration extends TestBase {
     @FindBy(xpath = "//label[normalize-space()='Tax Bill (Vera Bill etc.)']")
     public static WebElement comConsumerRegistrationProofOwnershipTaxBillCheckboxSelect;
 
+    @FindBy(xpath = "//label[normalize-space()='Original of latest Telephone Bill']")
+    public static WebElement comConsumerRegistrationProofOwnershipOriginalOfLatestTelephoneBillCheckboxSelect;
+
+
+
     // ------------------- Proof of Identification for authorized representative  --------------------------
 
     @FindBy(xpath = "//label[contains(text(),'Proof of Identification for authorized representative')]")
@@ -385,7 +397,6 @@ public class CommercialConsumerRegistration extends TestBase {
     public static WebElement comConsumerRegistrationProofIdentificationLeaseCheckbox;
 
 
-
     // ------------------- Form E  --------------------------
 
     @FindBy(xpath = "//input[@id='AdminstrativeCharges']/..//label[1]")
@@ -418,21 +429,18 @@ public class CommercialConsumerRegistration extends TestBase {
     public static WebElement comConsumerRegistrationSuccessMessage;
 
     @FindBy(xpath = "//h2[normalize-space()='Success!!']/..//p[@style='display: block;']")
-    public static WebElement comConsumerRegistrationApplicationNumber;
+    public static WebElement comConsumerRegistrationFinalApplicationNumber;
 
     @FindBy(xpath = "//button[@class='confirm']")
     public static WebElement comConsumerRegistrationSuccessConfirmBtn;
 
 
-
-
 //    Xls_Reader reader = new Xls_Reader(System.getProperty("user.dir") + "\\src\\main\\java\\com\\excel\\qa\\testdata\\TestData.xlsx");
 
 
+    public void fetchDataFromExcelForNewCommercialRegistration() throws InterruptedException {
 
-        public void fetchDataFromExcelForNewCommercialRegistration() throws InterruptedException {
-
-            Xls_Reader reader = new Xls_Reader("src/main/java/com/agp/qa/testdata/TestData.xlsx");
+        Xls_Reader reader = new Xls_Reader("src/main/java/com/agp/qa/testdata/TestData1.xlsx");
 
 //        String AccountTypeSelect = reader.getCellData("Commercial","Account Type Select",2);
 //        System.out.println(AccountTypeSelect);
@@ -440,331 +448,349 @@ public class CommercialConsumerRegistration extends TestBase {
 //        String Date = reader.getCellData("Commercial","Date",2);
 //        System.out.println(Date);
 
-            int rowCount = reader.getRowCount("Commercial");
+        int rowCount = reader.getRowCount("Commercial");
 //        System.out.println(rowCount);
 
-            for (int rowNum = 2; rowNum <= rowCount; rowNum++) {
+        if (!reader.addColumn("Commercial", "Application No")) {
+            reader.addColumn("Commercial", "Application No");
+        }
 
-                Thread.sleep(5000);
-                //  Fetching Data in the Loop
-                String AccountTypeSelect = reader.getCellData("Commercial", "Account Type Select", rowNum);
+        String uploadApplicationNo = null;
+        for (int rowNum = 2; rowNum <= rowCount; rowNum++) {
+            System.out.println(rowCount);
 
-
-                String Date = reader.getCellData("Commercial", "Date", rowNum);
-
-
-                String NameOfEstablishment = reader.getCellData("Commercial", "Name of Establishment", rowNum);
-
-
-                String LegalEntitySelect = reader.getCellData("Commercial", "Legal Entity Select", rowNum);
+            Thread.sleep(5000);
+            //  Fetching Data in the Loop
+            String AccountTypeSelect = reader.getCellData("Commercial", "Account Type Select", rowNum);
 
 
-                String DateOfIncorporation = reader.getCellData("Commercial", "Date of Incorporation", rowNum);
+            String Date = reader.getCellData("Commercial", "Date", rowNum);
 
 
-                String NameOfAuthorizedPerson = reader.getCellData("Commercial", "Name of Authorized Person", rowNum);
+            String NameOfEstablishment = reader.getCellData("Commercial", "Name of Establishment", rowNum);
 
 
-                String PhoneNo = reader.getCellData("Commercial", "Phone No", rowNum);
+            String LegalEntitySelect = reader.getCellData("Commercial", "Legal Entity Select", rowNum);
 
 
-                String MobileNo = reader.getCellData("Commercial", "Mobile No", rowNum);
+            String DateOfIncorporation = reader.getCellData("Commercial", "Date of Incorporation", rowNum);
 
 
-                String EmailID = reader.getCellData("Commercial", "Email ID", rowNum);
+            String NameOfAuthorizedPerson = reader.getCellData("Commercial", "Name of Authorized Person", rowNum);
 
 
-                String Address = reader.getCellData("Commercial", "Address", rowNum);
+            String PhoneNo = reader.getCellData("Commercial", "Phone No", rowNum);
 
 
-                String City = reader.getCellData("Commercial", "City", rowNum);
+            String MobileNo = reader.getCellData("Commercial", "Mobile No", rowNum);
 
 
-                String AreaName = reader.getCellData("Commercial", "Area Name", rowNum);
+            String EmailID = reader.getCellData("Commercial", "Email ID", rowNum);
 
 
-                String Pincode = reader.getCellData("Commercial", "Pincode", rowNum);
+            String Address = reader.getCellData("Commercial", "Address", rowNum);
 
 
-                String TypeOfEstablishment = reader.getCellData("Commercial", "Type of Establishment", rowNum);
+            String City = reader.getCellData("Commercial", "City", rowNum);
 
 
-                String ApproxNaturalGasInSCM = reader.getCellData("Commercial", "Approx Natural Gas in SCM", rowNum);
+            String AreaName = reader.getCellData("Commercial", "Area Name", rowNum);
 
 
-                String ApplicantsName = reader.getCellData("Commercial", "Applicant's Name", rowNum);
+            String Pincode = reader.getCellData("Commercial", "Pincode", rowNum);
 
 
-                String AuthorizedPersonPhoneNo = reader.getCellData("Commercial", "Authorized Person Phone No", rowNum);
+            String TypeOfEstablishment = reader.getCellData("Commercial", "Type of Establishment", rowNum);
 
 
-                String Place = reader.getCellData("Commercial", "Place", rowNum);
+            String ApproxNaturalGasInSCM = reader.getCellData("Commercial", "Approx Natural Gas in SCM", rowNum);
 
 
-                String ProofOfOwnership = reader.getCellData("Commercial", "Proof of Ownership", rowNum);
+            String ApplicantsName = reader.getCellData("Commercial", "Applicant's Name", rowNum);
 
 
-                String ProofOfIdentification = reader.getCellData("Commercial", "Proof of Identification", rowNum);
+            String AuthorizedPersonPhoneNo = reader.getCellData("Commercial", "Authorized Person Phone No", rowNum);
 
 
-                String PanCardNumber = reader.getCellData("Commercial", "Pan Card Number", rowNum);
+            String Place = reader.getCellData("Commercial", "Place", rowNum);
 
 
-                String GSTINVATNumber = reader.getCellData("Commercial", "GSTIN / VAT Number", rowNum);
+            String ProofOfOwnership = reader.getCellData("Commercial", "Proof of Ownership", rowNum);
 
 
-                String AdministrativeChargesInclusiveTax = reader.getCellData("Commercial", "Administrative Charges (Inclusive Tax)", rowNum);
+            String ProofOfIdentification = reader.getCellData("Commercial", "Proof of Identification", rowNum);
 
 
-                String ConsumptionSD = reader.getCellData("Commercial", "Consumption SD", rowNum);
+            String PanCardNumber = reader.getCellData("Commercial", "Pan Card Number", rowNum);
 
 
-                String EquipmentSD = reader.getCellData("Commercial", "Equipment SD", rowNum);
+            String GSTINVATNumber = reader.getCellData("Commercial", "GSTIN / VAT Number", rowNum);
+
+
+            String AdministrativeChargesInclusiveTax = reader.getCellData("Commercial", "Administrative Charges (Inclusive Tax)", rowNum);
+
+
+            String ConsumptionSD = reader.getCellData("Commercial", "Consumption SD", rowNum);
+
+
+            String EquipmentSD = reader.getCellData("Commercial", "Equipment SD", rowNum);
 
 
 //                comConsumerRegistrationAccountTypeDropDownClick.click();
 //                comConsumerRegistrationAccountTypeSelectCommercial.click();
 //                System.out.println(AccountTypeSelect);
-                TestUtil.highlightElement(comConsumerRegistrationMainHeader);
-                Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationA_BFormHeader);
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationMainHeader);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationAccountTypeHeader);
-                Thread.sleep(500);
-                TestUtil.selectMethodExcelString(comConsumerRegistrationAccountTypeDropDownClick, AccountTypeSelect);
-                Thread.sleep(2000);
+            TestUtil.highlightElement(comConsumerRegistrationA_BFormHeader);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationDateHeader);
-                Thread.sleep(500);
-                comConsumerRegistrationDateInput.click();
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationDateInput, Date);
-                Thread.sleep(500);
-                comConsumerRegistrationDateInput.click();
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationAccountTypeHeader);
+            Thread.sleep(500);
+            TestUtil.selectMethodExcelString(comConsumerRegistrationAccountTypeDropDownClick, AccountTypeSelect);
+            Thread.sleep(2000);
 
-
-                TestUtil.highlightElement(comConsumerRegistrationNameHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationNameInput, NameOfEstablishment);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationLegalEntityHeader);
-                Thread.sleep(500);
-                TestUtil.selectMethodExcelString(comConsumerRegistrationLegalEntityDropDownClick, LegalEntitySelect);
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationDateHeader);
+            Thread.sleep(500);
+            comConsumerRegistrationDateInput.click();
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationDateInput, Date);
+            Thread.sleep(500);
+            comConsumerRegistrationDateSelect.click();
+            Thread.sleep(500);
+            comConsumerRegistrationDateInput.click();
+            Thread.sleep(500);
+            comConsumerRegistrationDateSelect.click();
+            Thread.sleep(500);
 
 
-                TestUtil.highlightElement(comConsumerRegistrationDateIncorporationHeader);
-                Thread.sleep(500);
-                comConsumerRegistrationDateIncorporationInput.click();
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationDateIncorporationInput, Date);
-                Thread.sleep(500);
-                comConsumerRegistrationDateIncorporationInput.click();
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationNameHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationNameInput, NameOfEstablishment);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationNameAuthorizedPersonHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationNameAuthorizedPersonInput, NameOfAuthorizedPerson);
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationLegalEntityHeader);
+            Thread.sleep(500);
+            TestUtil.selectMethodExcelString(comConsumerRegistrationLegalEntityDropDownClick, LegalEntitySelect);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationPhoneNumberHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationPhoneNumberInput, PhoneNo);
-                Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationMobileNumberHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationMobileNumberInput, MobileNo);
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationDateIncorporationHeader);
+            Thread.sleep(500);
+            comConsumerRegistrationDateIncorporationInput.click();
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationDateIncorporationInput, Date);
+            Thread.sleep(500);
+            comConsumerRegistrationDateIncorporationSelect.click();
+            Thread.sleep(500);
+            comConsumerRegistrationDateIncorporationInput.click();
+            Thread.sleep(500);
+            comConsumerRegistrationDateIncorporationSelect.click();
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationEmailHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationEmailInput, EmailID);
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationNameAuthorizedPersonHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationNameAuthorizedPersonInput, NameOfAuthorizedPerson);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationAddressHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationAddressInput, Address);
-                Thread.sleep(500);
+            TestUtil.highlightElement(comConsumerRegistrationPhoneNumberHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationPhoneNumberInput, PhoneNo);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationCityHeader);
-                Thread.sleep(500);
-                TestUtil.selectMethodExcelString(comConsumerRegistrationCityDropDownClick, City);
-                Thread.sleep(2000);
+            TestUtil.highlightElement(comConsumerRegistrationMobileNumberHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationMobileNumberInput, MobileNo);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationAreaNameHeader);
-                Thread.sleep(500);
-                TestUtil.selectMethodExcelString(comConsumerRegistrationAreaNameDropDownClick, AreaName);
-                Thread.sleep(2000);
+            TestUtil.highlightElement(comConsumerRegistrationEmailHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationEmailInput, EmailID);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationPincodeHeader);
-                Thread.sleep(500);
-                TestUtil.selectMethodExcelString(comConsumerRegistrationPincodeDropDownClick, Pincode);
-                Thread.sleep(2000);
+            TestUtil.highlightElement(comConsumerRegistrationAddressHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationAddressInput, Address);
+            Thread.sleep(500);
 
-                TestUtil.highlightElement(comConsumerRegistrationNameTypeHeader);
-                Thread.sleep(500);
-                TestUtil.selectMethodExcelString(comConsumerRegistrationNameTypeDropDownClick, TypeOfEstablishment);
-                String NonCommercialNameType = comConsumerRegistrationNameTypeDropDownClick.getText();
-                System.out.println(comConsumerRegistrationNameTypeDropDownClick.getText());
+            TestUtil.highlightElement(comConsumerRegistrationCityHeader);
+            Thread.sleep(500);
+            TestUtil.selectMethodExcelString(comConsumerRegistrationCityDropDownClick, City);
+            Thread.sleep(2000);
+
+            TestUtil.highlightElement(comConsumerRegistrationAreaNameHeader);
+            Thread.sleep(500);
+            TestUtil.selectMethodExcelString(comConsumerRegistrationAreaNameDropDownClick, AreaName);
+            Thread.sleep(2000);
+
+            TestUtil.highlightElement(comConsumerRegistrationPincodeHeader);
+            Thread.sleep(500);
+            TestUtil.selectMethodExcelString(comConsumerRegistrationPincodeDropDownClick, Pincode);
+            Thread.sleep(2000);
+
+            TestUtil.highlightElement(comConsumerRegistrationNameTypeHeader);
+            Thread.sleep(500);
+            TestUtil.selectMethodExcelString(comConsumerRegistrationNameTypeDropDownClick, TypeOfEstablishment);
+            String NonCommercialNameType = comConsumerRegistrationNameTypeDropDownClick.getText();
+            System.out.println(comConsumerRegistrationNameTypeDropDownClick.getText());
+            Thread.sleep(1000);
+            if (NonCommercialNameType.equals("--Select Type of Establishment--\n" +
+                    "Non-Commercial (Please Specify)")) {
+                comConsumerRegistrationNonCommercialNameTypeInputField.sendKeys("Ayngaran Foundation");
+            }
+            Thread.sleep(2000);
+
+            TestUtil.highlightElement(comConsumerRegistrationNGSCMHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationNGSCMInput, ApproxNaturalGasInSCM);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationCFormHeader);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationApplicantNameHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationApplicantNameInput, ApplicantsName);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationApplicantPhoneNoHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationApplicantPhoneNoInput, AuthorizedPersonPhoneNo);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationPlaceHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationPlaceInput, Place);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationDFormHeader);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationProofOwnershipHeader);
+            Thread.sleep(500);
+            if (comConsumerRegistrationProofOwnershipOriginalLatestElectricityBillCheckboxSelect.getText().equals(ProofOfOwnership)) {
+                comConsumerRegistrationProofOwnershipOriginalLatestElectricityBillCheckboxSelect.click();
+            } else if (comConsumerRegistrationProofOwnershipSalesDeedCheckboxSelect.getText().equals(ProofOfOwnership)) {
+                comConsumerRegistrationProofOwnershipSalesDeedCheckboxSelect.click();
+            } else if (comConsumerRegistrationProofOwnershipGumastaDharaCheckboxSelect.getText().equals(ProofOfOwnership)) {
+                comConsumerRegistrationProofOwnershipGumastaDharaCheckboxSelect.click();
+            } else if (comConsumerRegistrationProofOwnershipGSTCSTVATCertificateCheckboxSelect.getText().equals(ProofOfOwnership)) {
+                comConsumerRegistrationProofOwnershipGSTCSTVATCertificateCheckboxSelect.click();
+            } else if (comConsumerRegistrationProofOwnershipTaxBillCheckboxSelect.getText().equals(ProofOfOwnership)) {
+                comConsumerRegistrationProofOwnershipTaxBillCheckboxSelect.click();
+            }
+            comConsumerRegistrationProofOwnershipOriginalOfLatestTelephoneBillCheckboxSelect.click();
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationProofIdentificationHeader);
+            Thread.sleep(500);
+            if (comConsumerRegistrationProofIdentificationDrivingLicenseCheckboxSelect.getText().equals(ProofOfIdentification)) {
+                comConsumerRegistrationProofIdentificationDrivingLicenseCheckboxSelect.click();
+//                    if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()){
+//                    Thread.sleep(1000);
+//                        comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
+//                    }
+            } else if (comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.getText().equals(ProofOfIdentification)) {
+                if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()) {
+                    comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
+                }
+            } else if (comConsumerRegistrationProofIdentificationGumastaDharaCheckboxSelect.getText().equals(ProofOfIdentification)) {
+                comConsumerRegistrationProofIdentificationGumastaDharaCheckboxSelect.click();
+//                    if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()){
+//                    Thread.sleep(1000);
+//                        comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
+//                    }
+            } else if (comConsumerRegistrationProofIdentificationGSTCSTVATCertificateCheckboxSelect.getText().equals(ProofOfIdentification)) {
+                comConsumerRegistrationProofIdentificationGSTCSTVATCertificateCheckboxSelect.click();
+//                    if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()){
+//                    Thread.sleep(1000);
+//                        comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
+//                    }
+            }
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationProofIdentificationPanCardHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationProofIdentificationPanCardInput, PanCardNumber);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationProofIdentificationGSTHeader);
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationProofIdentificationGSTInput, GSTINVATNumber);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationProofIdentificationLeaseHeader);
+            Thread.sleep(500);
+            comConsumerRegistrationProofIdentificationLeaseCheckbox.click();
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationEFormHeader);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationAdminstrativeChargesHeader);
+            Thread.sleep(500);
+            comConsumerRegistrationAdminstrativeChargesInput.clear();
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationAdminstrativeChargesInput, AdministrativeChargesInclusiveTax);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationConsumptionSDHeader);
+            Thread.sleep(500);
+            comConsumerRegistrationConsumptionSDInput.clear();
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationConsumptionSDInput, ConsumptionSD);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationEquipmentSDHeader);
+            Thread.sleep(500);
+            comConsumerRegistrationEquipmentSDInput.clear();
+            Thread.sleep(500);
+            TestUtil.sendKeyNormalExcel(comConsumerRegistrationEquipmentSDInput, EquipmentSD);
+            Thread.sleep(500);
+
+            TestUtil.highlightElement(comConsumerRegistrationCancelBtn);
+//                comConsumerRegistrationCancelBtn.click();
+
+            Thread.sleep(1000);
+            TestUtil.highlightElement(comConsumerRegistrationSaveBtn);
+
+            Thread.sleep(1000);
+            comConsumerRegistrationSaveBtn.click();
+
+            Thread.sleep(2000);
+            TestUtil.highlightElement(comConsumerRegistrationSuccessMessage);
+            Thread.sleep(1000);
+
+            // Splitting the String and Capturing the Application No From the String -> Using Split method
+
+//            TestUtil.highlightElement(comConsumerRegistrationFinalApplicationNumber); // Showing error
+//            Thread.sleep(1000);
+            String uiApplicationNo = TestUtil.getTextFromUI(comConsumerRegistrationFinalApplicationNumber);
+//            System.out.println("----------------" + uiApplicationNo);
+            String[] output = uiApplicationNo.split(": ");
+            String finalApplicationNo = output[1];
+            uploadApplicationNo = finalApplicationNo;
+//            System.out.println("+++++++++++++++ " + finalApplicationNo);
+
+
+            for (int statusRowDataAdd = rowNum; statusRowDataAdd <= rowCount; statusRowDataAdd ++) {
+                System.out.println(rowCount);
+
                 Thread.sleep(1000);
-                if (NonCommercialNameType.equals("--Select Type of Establishment--\n" +
-                        "Non-Commercial (Please Specify)")){
-                    comConsumerRegistrationNonCommercialNameTypeInputField.sendKeys("Ayngaran Foundation");
-                }
-                Thread.sleep(2000);
+                //  Fetching Data in the Loop
 
-                TestUtil.highlightElement(comConsumerRegistrationNGSCMHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationNGSCMInput, ApproxNaturalGasInSCM);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationCFormHeader);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationApplicantNameHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationApplicantNameInput, ApplicantsName);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationApplicantPhoneNoHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationApplicantPhoneNoInput, AuthorizedPersonPhoneNo);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationPlaceHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationPlaceInput, Place);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationDFormHeader);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationProofOwnershipHeader);
-                Thread.sleep(500);
-                if (comConsumerRegistrationProofOwnershipOriginalLatestElectricityBillCheckboxSelect.getText().equals(ProofOfOwnership)){
-                    comConsumerRegistrationProofOwnershipOriginalLatestElectricityBillCheckboxSelect.click();
-                } else if (comConsumerRegistrationProofOwnershipSalesDeedCheckboxSelect.getText().equals(ProofOfOwnership)) {
-                    comConsumerRegistrationProofOwnershipSalesDeedCheckboxSelect.click();
-                } else if (comConsumerRegistrationProofOwnershipGumastaDharaCheckboxSelect.getText().equals(ProofOfOwnership)) {
-                    comConsumerRegistrationProofOwnershipGumastaDharaCheckboxSelect.click();
-                } else if (comConsumerRegistrationProofOwnershipGSTCSTVATCertificateCheckboxSelect.getText().equals(ProofOfOwnership)) {
-                    comConsumerRegistrationProofOwnershipGSTCSTVATCertificateCheckboxSelect.click();
-                }else if (comConsumerRegistrationProofOwnershipTaxBillCheckboxSelect.getText().equals(ProofOfOwnership)){
-                    comConsumerRegistrationProofOwnershipTaxBillCheckboxSelect.click();
-                }
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationProofIdentificationHeader);
-                Thread.sleep(500);
-                if (comConsumerRegistrationProofIdentificationDrivingLicenseCheckboxSelect.getText().equals(ProofOfIdentification)){
-                    comConsumerRegistrationProofIdentificationDrivingLicenseCheckboxSelect.click();
-//                    if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()){
-//                    Thread.sleep(1000);
-//                        comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
-//                    }
-                } else if (comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.getText().equals(ProofOfIdentification)) {
-                    if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()){
-                        comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
-                    }
-                } else if (comConsumerRegistrationProofIdentificationGumastaDharaCheckboxSelect.getText().equals(ProofOfIdentification)) {
-                    comConsumerRegistrationProofIdentificationGumastaDharaCheckboxSelect.click();
-//                    if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()){
-//                    Thread.sleep(1000);
-//                        comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
-//                    }
-                } else if (comConsumerRegistrationProofIdentificationGSTCSTVATCertificateCheckboxSelect.getText().equals(ProofOfIdentification)) {
-                    comConsumerRegistrationProofIdentificationGSTCSTVATCertificateCheckboxSelect.click();
-//                    if (!comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.isSelected()){
-//                    Thread.sleep(1000);
-//                        comConsumerRegistrationProofIdentificationPanCardCheckboxSelect.click();
-//                    }
-                }
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationProofIdentificationPanCardHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationProofIdentificationPanCardInput, PanCardNumber);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationProofIdentificationGSTHeader);
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationProofIdentificationGSTInput, GSTINVATNumber);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationProofIdentificationLeaseHeader);
-                Thread.sleep(500);
-                comConsumerRegistrationProofIdentificationLeaseCheckbox.click();
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationEFormHeader);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationAdminstrativeChargesHeader);
-                Thread.sleep(500);
-                comConsumerRegistrationAdminstrativeChargesInput.clear();
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationAdminstrativeChargesInput, AdministrativeChargesInclusiveTax);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationConsumptionSDHeader);
-                Thread.sleep(500);
-                comConsumerRegistrationConsumptionSDInput.clear();
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationConsumptionSDInput, ConsumptionSD);
-                Thread.sleep(500);
-
-                TestUtil.highlightElement(comConsumerRegistrationEquipmentSDHeader);
-                Thread.sleep(500);
-                comConsumerRegistrationEquipmentSDInput.clear();
-                Thread.sleep(500);
-                TestUtil.sendKeyNormalExcel(comConsumerRegistrationEquipmentSDInput, EquipmentSD);
-                Thread.sleep(500);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                comConsumerRegistrationCancelBtn.click();
-
-                Thread.sleep(5000);
-
+                String.valueOf(reader.setCellData("Commercial","Application No",statusRowDataAdd,uploadApplicationNo));
 
             }
 
+            Thread.sleep(1000);
+            TestUtil.highlightElement(comConsumerRegistrationSuccessConfirmBtn);
+            Thread.sleep(1000);
+            comConsumerRegistrationSuccessConfirmBtn.click();
+            Thread.sleep(2000);
 
         }
 
-
-
-
-
+    }
 
 
 }

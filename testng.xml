@@ -1,37 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-
     <listeners>
-<!--        RahulBhai-->
-        <listener class-name="com.agp.qa.extentReportListeners.ListenerTest"></listener>
-<!--        NaveenBhai-->
-<!--        <listener class-name="com.agp.qa.extentReportListeners.ExtentReportListener"></listener>-->
+        <!--        RahulBhai-->
+        <!--        <listener class-name="com.agp.qa.extentReportListeners.ListenerTest"></listener>-->
+        <!--        NaveenBhai-->
+        <listener class-name="com.agp.qa.extentReportListeners.ExtentReportListener"></listener>
     </listeners>
     <test verbose="2" preserve-order="true" name="D:/Jignesh/Intellij Project/AGP/AGP">
         <classes>
+
+            <!--                   Logging New                                        -->
             <class name="com.agp.qa.test.login.LoginPageTest">
                 <methods>
                     <include name="loginTest"/>
-                    <include name="loginTest1"/>
-                    <include name="loginTest2"/>
                 </methods>
             </class>
-<!--            <class name="com.agp.qa.test.domestic.DomesticConsumerAgreementPrintPageTest">-->
-<!--                <methods>-->
-<!--                    <include name="consumerAgreementPrintTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="com.agp.qa.test.domestic.DomesticUploadRegistrationFormAndDocumentsPageTest">-->
-<!--                <methods>-->
-<!--                    <include name="domesticUploadRegistrationFormAndDocumentsPage"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--            <class name="com.agp.qa.test.commercial.CommercialConsumerRegistrationTest">-->
-<!--                <methods>-->
-<!--                    <include name="consumerAgreementPrintTest"/>-->
-<!--                </methods>-->
-<!--            </class>-->
+
+            <!--                   Commercial New                                        -->
+            <class name="com.agp.qa.test.commercial.CommercialConsumerRegistrationTest">
+                <methods>
+                    <include name="addingNewConsumerForCommercial"/>
+                </methods>
+            </class>
+            <class name="com.agp.qa.test.commercial.CommercialUploadRegistrationFormDocumentTest">
+                <methods>
+                    <include name="uploadRegistrationFormDocument"/>
+                </methods>
+            </class>
+            <class name="com.agp.qa.test.commercial.CommercialConsumerRegistrationReceiptTest">
+                <methods>
+                    <include name="verifyAmountForRegistrationOfNewCommercialAndCreatingReceipt"/>
+                </methods>
+            </class>
+            <class name="com.agp.qa.test.commercial.CommercialConsumerApplicationApprovalTest">
+                <methods>
+                    <include name="approvalOfNewCommercialCustomerForGasIn"/>
+                </methods>
+            </class>
+
+            <!--                   List Report                                        -->
+            <class name="com.agp.qa.test.listReport.ListReportConsumerRegistrationReportTest">
+                <methods>
+                    <include name="fetchingConsumerNumberData"/>
+                </methods>
+            </class>
+
+
+<!--            &lt;!&ndash;                   Gas In                                        &ndash;&gt;-->
+            <class name="com.agp.qa.test.gasIn.GasInRouteAndMeterAssignmentFormTest">
+                <methods>
+                    <include name="fetchingConsumerNumberData"/>
+                </methods>
+            </class>
+            <class name="com.agp.qa.test.gasIn.GasInRouteAndMeterApprovalFormTest">
+                <methods>
+                    <include name="approveConsumerNumberDataAddedInGasIn"/>
+                </methods>
+            </class>
+
+
+<!--            &lt;!&ndash;                   Billing                                        &ndash;&gt;-->
+            <class name="com.agp.qa.test.billing.BillingGenerateBillTest">
+                <methods>
+                    <include name="fetchingConsumerNumberData"/>
+                </methods>
+            </class>
+            <class name="com.agp.qa.test.billing.BillingMeterReadingTest">
+                <methods>
+                    <include name="fetchingConsumerNumberData"/>
+                </methods>
+            </class>
+            <!--            -->
+            <!--            -->
+            <!--            <class name="com.agp.qa.test.domestic.DomesticConsumerAgreementPrintPageTest">-->
+            <!--                <methods>-->
+            <!--                    <include name="consumerAgreementPrintTest"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
+            <!--            <class name="com.agp.qa.test.domestic.DomesticUploadRegistrationFormAndDocumentsPageTest">-->
+            <!--                <methods>-->
+            <!--                    <include name="domesticUploadRegistrationFormAndDocumentsPage"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
 
         </classes>
     </test>

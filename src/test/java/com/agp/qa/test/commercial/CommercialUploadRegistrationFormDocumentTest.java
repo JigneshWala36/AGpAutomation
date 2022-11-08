@@ -6,6 +6,8 @@ import com.agp.qa.pages.commercial.CommercialUploadRegistrationFormDocument;
 import com.agp.qa.pages.dashboard.DashboardCommercialNewConnection;
 import com.agp.qa.pages.dashboard.DashboardPage;
 import com.agp.qa.pages.login.LoginPage;
+import com.agp.qa.util.TestUtil;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,14 +30,15 @@ public class CommercialUploadRegistrationFormDocumentTest extends TestBase {
 
     @BeforeMethod
     public void setUp() {
-        initialization();
-        loginPage = new LoginPage();
+//        initialization();
+//        loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
-        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-        dashboardPage.dashboardVerify();
-        dashboardPage.commercialNewConnectionClick();
+//        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+//        dashboardPage.dashboardVerify();
+//        dashboardPage.commercialNewConnectionClick();
         dashboardCommercialNewConnection = new DashboardCommercialNewConnection();
 //        dashboardCommercialNewConnection.commercialConsumerRegistrationClick();
+        dashboardCommercialNewConnection.commercialUploadRegistrationFormDocument();
     }
 
     @Test(priority = 1)
@@ -44,7 +47,7 @@ public class CommercialUploadRegistrationFormDocumentTest extends TestBase {
 //        commercialConsumerRegistration1.fetchDataFromExcelForNewCommercialRegistration1();
 //
 //        Thread.sleep(3000);
-        dashboardCommercialNewConnection.commercialUploadRegistrationFormDocument();
+//        dashboardCommercialNewConnection.commercialUploadRegistrationFormDocument();
 
         Thread.sleep(3000);
         commercialUploadRegistrationFormDocument = new CommercialUploadRegistrationFormDocument();
@@ -54,10 +57,11 @@ public class CommercialUploadRegistrationFormDocumentTest extends TestBase {
 
     }
 
-//    @AfterMethod
-//    public void tearDown(){
+    @AfterMethod
+    public void tearDown(){
+        TestUtil.waiting(2000);
 //        driver.quit();
-//    }
+    }
 
 
 }

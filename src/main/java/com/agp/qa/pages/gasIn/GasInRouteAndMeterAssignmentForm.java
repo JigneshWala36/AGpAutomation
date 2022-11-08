@@ -406,7 +406,7 @@ public class GasInRouteAndMeterAssignmentForm extends TestBase {
             TestUtil.waiting(500);
             TestUtil.highlightElement(gasInRouteAndMeterAssignmentFormMeterNumberInput);
             TestUtil.waiting(500);
-            TestUtil.sendKeyNormalExcel(gasInRouteAndMeterAssignmentFormMeterNumberInput, MeterNo);
+            TestUtil.sendKeyNormalExcel(gasInRouteAndMeterAssignmentFormMeterNumberInput, MeterNo + TestUtil.generateRandomNumber());
 
             TestUtil.waiting(1000);
             TestUtil.highlightElement(gasInRouteAndMeterAssignmentFormOpeningReadingHeader);
