@@ -40,7 +40,7 @@ public class GasInRouteAndMeterAssignmentFormTest extends TestBase {
 
 
     @Test
-    public void fetchingConsumerNumberData () throws InterruptedException {
+    public void assigningDataForGasIn () throws InterruptedException {
         gasInRouteAndMeterAssignmentForm = new GasInRouteAndMeterAssignmentForm();
         gasInRouteAndMeterAssignmentForm.addingSwitchDataOfNewCustomerAdded();
 

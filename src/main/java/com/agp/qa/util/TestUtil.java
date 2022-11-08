@@ -63,14 +63,14 @@ public class TestUtil extends TestBase {
 //        return destination;
     }
 
-    public static String capture(WebDriver driver) throws IOException {
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        File Dest = new File("src/../ErrImages/" + System.currentTimeMillis()
-                + ".png");
-        String errflpath = Dest.getAbsolutePath();
-        FileUtils.copyFile(scrFile, Dest);
-        return errflpath;
-    }
+//    public static String capture(WebDriver driver) throws IOException {
+//        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        File Dest = new File("src/../ErrImages/" + System.currentTimeMillis()
+//                + ".png");
+//        String errflpath = Dest.getAbsolutePath();
+//        FileUtils.copyFile(scrFile, Dest);
+//        return errflpath;
+//    }
 
     // URL Video ->  https://www.youtube.com/watch?v=7xh371gk2ho
 

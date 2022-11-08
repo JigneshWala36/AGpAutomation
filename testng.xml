@@ -50,12 +50,12 @@
 <!--            &lt;!&ndash;                   Gas In                                        &ndash;&gt;-->
             <class name="com.agp.qa.test.gasIn.GasInRouteAndMeterAssignmentFormTest">
                 <methods>
-                    <include name="fetchingConsumerNumberData"/>
+                    <include name="assigningConsumerDataForGasIn"/>
                 </methods>
             </class>
             <class name="com.agp.qa.test.gasIn.GasInRouteAndMeterApprovalFormTest">
                 <methods>
-                    <include name="approveConsumerNumberDataAddedInGasIn"/>
+                    <include name="approveConsumerDataAddedInGasIn"/>
                 </methods>
             </class>
 
@@ -63,12 +63,12 @@
 <!--            &lt;!&ndash;                   Billing                                        &ndash;&gt;-->
             <class name="com.agp.qa.test.billing.BillingGenerateBillTest">
                 <methods>
-                    <include name="fetchingConsumerNumberData"/>
+                    <include name="meterReadingForTheGeneratedMRO"/>
                 </methods>
             </class>
             <class name="com.agp.qa.test.billing.BillingMeterReadingTest">
                 <methods>
-                    <include name="fetchingConsumerNumberData"/>
+                    <include name="generateMROForTheApprovedGASInCustomer"/>
                 </methods>
             </class>
             <!--            -->

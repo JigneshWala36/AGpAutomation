@@ -11,7 +11,7 @@ public class ExtentReporterNG {
     public static ExtentReports getReportObject(){
 
         ExtentReports extent = new ExtentReports();
-        String path = System.getProperty("user.dir")+"\\reports\\AGP1.html";
+        String path = System.getProperty("user.dir")+"\\reports\\AG&P.html";
         ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 
         extent.attachReporter(reporter);
@@ -38,7 +38,7 @@ public class ExtentReporterNG {
 
 
         ExtentReports extent = new ExtentReports();
-        String path = System.getProperty("user.dir")+"\\reports\\AGPFinal1_index.html";
+        String path = System.getProperty("user.dir")+"\\reports\\AG&N_index.html";
         ExtentSparkReporter reporter = new ExtentSparkReporter(path);
         reporter.config().setReportName("Web Automation Test");
         reporter.config().setDocumentTitle("AG&P Testing");

@@ -60,7 +60,7 @@ public class BillingMeterReadingTest extends TestBase {
 
 
     @Test
-    public void fetchingConsumerNumberData() throws InterruptedException {
+    public void meterReadingForTheGeneratedMRO() throws InterruptedException {
         billingMeterReading = new BillingMeterReading();
         billingMeterReading.meterReadingOfGeneratedMROApprovedGasInCustomer();
 

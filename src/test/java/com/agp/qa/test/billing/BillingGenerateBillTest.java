@@ -59,7 +59,7 @@ public class BillingGenerateBillTest extends TestBase {
 
 
     @Test
-    public void fetchingConsumerNumberData() throws InterruptedException {
+    public void generateMROForTheApprovedGASInCustomer() throws InterruptedException {
         billingGenerateBill = new BillingGenerateBill();
         billingGenerateBill.generateMROOfApprovedGasInCustomer();
 

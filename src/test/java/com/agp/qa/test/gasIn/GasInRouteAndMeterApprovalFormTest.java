@@ -46,7 +46,7 @@ public class GasInRouteAndMeterApprovalFormTest extends TestBase {
 
 
     @Test
-    public void approveConsumerNumberDataAddedInGasIn() throws InterruptedException {
+    public void approveConsumerDataAddedInGasIn() throws InterruptedException {
         gasInRouteAndMeterApprovalForm = new GasInRouteAndMeterApprovalForm();
         gasInRouteAndMeterApprovalForm.approvingNewAddedCustomerSwitchOnDate();
 
