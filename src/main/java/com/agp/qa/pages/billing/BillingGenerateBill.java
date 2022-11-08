@@ -105,74 +105,74 @@ public class BillingGenerateBill extends TestBase {
             String WardNo = Xls_Reader.getCellData("Commercial", "Ward No", rowNum);
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillMainHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillCycleHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillCycleInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.sendKeyNormalExcel(billingGenerateBillCycleInput, Cycle);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillAccountTypeHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillAccountTypeSelect);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.selectMethodExcelString(billingGenerateBillAccountTypeSelect, AccountType);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillWardHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillWardInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.sendKeyNormalExcel(billingGenerateBillWardInput, WardNo);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingGenerateBillWardInputSelect.click();
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillMonthHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillMonthInput);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillConsumerNumberHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillConsumerNumberInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.sendKeyNormalExcel(billingGenerateBillConsumerNumberInput, ConsumerNo);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillSearchBtn);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillClearBtn);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillGenerateBillBtn);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingGenerateBillGenerateBillBtn.click();
 
             TestUtil.waiting(3000);
             TestUtil.scrollTo(billingGenerateBillViewIcon);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingGenerateBillViewIcon.click();
 
             TestUtil.waiting(3000);
             TestUtil.highlightElement(billingGenerateBillViewPopUpStatusHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillViewPopUpStatusConsumerNoTableHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillViewPopUpStatusConsumerNoVerify);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             Assert.assertEquals(ConsumerNo, billingGenerateBillViewPopUpStatusConsumerNoVerify.getText(), "Consumer No Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(billingGenerateBillViewPopUpCloseIcon);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             billingGenerateBillViewPopUpCloseIcon.click();
 
 

@@ -10,6 +10,7 @@ import org.testng.Assert;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -58,13 +59,12 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
     @FindBy(xpath = "//input[@id='TransactionDate']")
     public static WebElement comConsumerRegistrationPaymentReceiptReceiptDateInput;
 
-//    @FindBy(xpath = "//div[@class='form-group disablePayment']//label[1]")
+    //    @FindBy(xpath = "//div[@class='form-group disablePayment']//label[1]")
     @FindBy(xpath = "//label[contains(text(),'Payment Mode ')]")
     public static WebElement comConsumerRegistrationPaymentReceiptPaymentModeHeader;
 
     @FindBy(xpath = "//select[@id='ConChallanTr_PaymentTypeId']")
     public static WebElement comConsumerRegistrationPaymentReceiptPaymentModeClick;
-
 
 
     @FindBy(xpath = "//option[contains(text(),'CASH')]")
@@ -178,7 +178,7 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
     @FindBy(xpath = "//h2[normalize-space()='Success!!']")
     public static WebElement comConsumerRegistrationPaymentReceiptSuccessToasterMessagePopUp;
 
-//    @FindBy(xpath = "//p[normalize-space()='Record Saved Succssfully']")
+    //    @FindBy(xpath = "//p[normalize-space()='Record Saved Succssfully']")
     @FindBy(xpath = "//p[normalize-space()='Record Saved Successfully']")
     public static WebElement comConsumerRegistrationPaymentReceiptRecordSavedSuccessfullyPopUp;
 
@@ -186,7 +186,6 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
     public static WebElement comConsumerRegistrationPaymentReceiptConfirmPopUpBTN;
 
     // -------------------------------- Switching to Other Tab -------------------------------------------
-
 
 
     @FindBy(xpath = "//b[normalize-space()='RECEIPT']")
@@ -222,7 +221,6 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
     @FindBy(xpath = "//b[normalize-space()='Receipt Date :']/../..//td[3]")
     public static WebElement comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI;
-
 
 
     @FindBy(xpath = "//b[contains(text(),'Particulars')]")
@@ -262,15 +260,6 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
     public static WebElement comConsumerRegistrationPaymentReceiptNewTabFinalTotalAmountTableUI;
 
 
-
-
-
-
-
-
-
-
-
     public void paymentReceiptVerifyAmount() {
 
         TestUtil.waiting(1000);
@@ -292,88 +281,88 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
             String Address = reader.getCellData("Commercial", "Address", rowNum);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptApplicationNoHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptApplicationNoInput);
             TestUtil.sendKeyNormalExcel(comConsumerRegistrationPaymentReceiptApplicationNoInput, Application_No);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSearchBtn);
             TestUtil.waiting(500);
             comConsumerRegistrationPaymentReceiptSearchBtn.click();
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConsumerNameHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConsumerNameInput);
             TestUtil.waiting(500);
-            System.out.println("++++++++++++++++++++ "+ consumerName.toUpperCase());
+            System.out.println("++++++++++++++++++++ " + consumerName.toUpperCase());
             Assert.assertEquals(consumerName.toUpperCase(), comConsumerRegistrationPaymentReceiptConsumerNameInput.getAttribute("value"), "Consumer Name Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptMobileNumberHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptMobileNumberInput);
             TestUtil.waiting(500);
             Assert.assertEquals(MobileNo, comConsumerRegistrationPaymentReceiptMobileNumberInput.getAttribute("value"), "Mobile No Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptAddressHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptAddressInput);
             TestUtil.waiting(500);
             Assert.assertEquals(Address.toUpperCase(), comConsumerRegistrationPaymentReceiptAddressInput.getAttribute("value"), "Address Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptReceiptDateHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptReceiptDateInput);
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDateTime now = LocalDateTime.now();
             String dateInString = dtf.format(now);
-            System.out.println("++++++++++++++++++++++++++++++ "+ dateInString);
-            Assert.assertEquals(dateInString,comConsumerRegistrationPaymentReceiptReceiptDateInput.getAttribute("value"), "Date Does Not Match");
+            System.out.println("++++++++++++++++++++++++++++++ " + dateInString);
+            Assert.assertEquals(dateInString, comConsumerRegistrationPaymentReceiptReceiptDateInput.getAttribute("value"), "Date Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPaymentModeHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPaymentModeClick);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             comConsumerRegistrationPaymentReceiptPaymentModeClick.click();
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             comConsumerRegistrationPaymentReceiptPaymentModeCashSelect.click();
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPaymentModeClick);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 //            TestUtil.selectMethod(comConsumerRegistrationPaymentReceiptReceiptDateInput,"Cash");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             comConsumerRegistrationPaymentReceiptPayableAmountHeader.click();
             TestUtil.scrollTo(comConsumerRegistrationPaymentReceiptPayableAmountHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPayableAmountHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPayableAmountInput);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptDescriptionTableHeader);
             TestUtil.waiting(1000);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptPaidAmountTableHeader);
 
             // -------------------------------- Basic Administrative Charges ---------------------------
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptBasicAdministrativeChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptBasicAdministrativeChargesInput);
             Double basicAdministrativeCharges = Double.parseDouble(comConsumerRegistrationPaymentReceiptBasicAdministrativeChargesInput.getAttribute("value"));
 
             // -------------------------------- CGST ------------------------------------------
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptCGSTAdministrativeChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptCGSTAdministrativeChargesInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 
 //            Double convertCGSTAdministrativeChargesInput = Double.parseDouble(comConsumerRegistrationPaymentReceiptCGSTAdministrativeChargesInput.getAttribute("value"));
 
@@ -383,15 +372,15 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
             Double convertCGSTAdministrativeChargesFinalUI = Double.parseDouble(comConsumerRegistrationPaymentReceiptSGSTAdministrativeChargesInput.getAttribute("value"));
 
-            Assert.assertEquals(convertCGSTAdministrativeChargesFinalUI,convertCGSTAdministrativeChargesFinal, "CGST Administrative Charges Final Does Not Match");
+            Assert.assertEquals(convertCGSTAdministrativeChargesFinalUI, convertCGSTAdministrativeChargesFinal, "CGST Administrative Charges Final Does Not Match");
 
             // ------------------------------------ SGST -----------------------------------------
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSGSTAdministrativeChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSGSTAdministrativeChargesInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 
 //            Double convertSGSTAdministrativeChargesInput = Double.parseDouble(comConsumerRegistrationPaymentReceiptCGSTAdministrativeChargesInput.getAttribute("value"));
 
@@ -404,18 +393,18 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
             // ------------------------------------ ConsumptionSD Charges -----------------------------------------
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConsumptionSDChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConsumptionSDChargesInput);
 
             Double consumptionSDCharges = Double.parseDouble(comConsumerRegistrationPaymentReceiptConsumptionSDChargesInput.getAttribute("value"));
 
             // ------------------------------------ ConnectionSD Charges -----------------------------------------
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConnectionSDChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConnectionSDChargesInput);
 
             Double connectionSDCharges = Double.parseDouble(comConsumerRegistrationPaymentReceiptConnectionSDChargesInput.getAttribute("value"));
@@ -423,31 +412,30 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
             // ------------------------------------ Cheque Return Charges -----------------------------------------
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptChequeReturnChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptChequeReturnChargesInput);
 
             Double chequeReturnCharges = Double.parseDouble(comConsumerRegistrationPaymentReceiptChequeReturnChargesInput.getAttribute("value"));
 
             // ------------------------------------ CGST Cheque Return Charges -----------------------------------------
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptCGSTChequeReturnChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptCGSTChequeReturnChargesInput);
 
             Double cGSTChequeReturnCharges = Double.parseDouble(comConsumerRegistrationPaymentReceiptCGSTChequeReturnChargesInput.getAttribute("value"));
 
             // ------------------------------------ SGST Cheque Return Charges -----------------------------------------
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSGSTChequeReturnChargesHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSGSTChequeReturnChargesInput);
 
             Double sGSTChequeReturnCharges = Double.parseDouble(comConsumerRegistrationPaymentReceiptSGSTChequeReturnChargesInput.getAttribute("value"));
-
 
 
             // ------------------------------------ Total Paid Amount: -----------------------------------------
@@ -456,67 +444,79 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
                     convertSGSTAdministrativeChargesFinal + consumptionSDCharges + connectionSDCharges + chequeReturnCharges
                     + cGSTChequeReturnCharges + sGSTChequeReturnCharges;
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptTotalPaidAmountHeader);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptTotalPaidAmountInput);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 
             Double TotalPaidAmountUI = Double.parseDouble(comConsumerRegistrationPaymentReceiptTotalPaidAmountInput.getText());
             Assert.assertEquals(TotalPaidAmountUI, finalPayableAmount, "Total Paid Amount  Does Not Match");
 
             // ------------------------------------ Clear aND Submit BTN -----------------------------------------
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptClearBtn);
-            TestUtil.waiting(1000);
-//            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSaveAndPrintBtn);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSaveAndPrintBtn);
-            TestUtil.waiting(1000);
+            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSaveAndPrintBtn);
+            TestUtil.waiting(500);
             comConsumerRegistrationPaymentReceiptSaveAndPrintBtn.click();
 
 
             // ------------------------------------ Success Toaster -----------------------------------------
 
-            TestUtil.waiting(3000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptSuccessToasterMessagePopUp);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptRecordSavedSuccessfullyPopUp);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
 
-//            String MainWindow=driver.getWindowHandle();
-//            Set<String> s1=driver.getWindowHandles();
+
+            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConfirmPopUpBTN);
+            TestUtil.waiting(1000);
+            String MainWindow = driver.getWindowHandle();
+            System.out.println("++++++++++++++++++++++++++++++++++"+ MainWindow);
+            Set<String> s1 = driver.getWindowHandles();
 
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConfirmPopUpBTN);
             TestUtil.waiting(1000);
 
+//            String parent = driver.getWindowHandle();
             comConsumerRegistrationPaymentReceiptConfirmPopUpBTN.click();
+            TestUtil.waiting(2000);
+//
+            TestUtil.keyboardActionRobotPressEsc();
 
+//            for (String child : driver.getWindowHandles()) {
+//                driver.switchTo().window(child);
+//            }
+//            TestUtil.waiting(1000);
+//            driver.close();
+//            driver.switchTo().window(parent);
+
+
+//            String MainWindow=driver.getWindowHandle();
+//
+//            Set<String> s1 = driver.getWindowHandles();
+            TestUtil.waiting(1000);
+//            driver.switchTo().window(MainWindow);
+
+
+//            TestUtil.keyboardActionMethodPressEsc();
+////            TestUtil.keyboardActionRobotPressEsc();
 
             // ======================== Switching to Other Tab ========================================
 
 
+//            String MainWindow = driver.getWindowHandle();
+//            System.out.println(MainWindow);
+//            Set<String> s1 = driver.getWindowHandles();
 
-            TestUtil.waiting(1000);
-//            TestUtil.keyboradActionMethodPressEsc();
-//            TestUtil.waiting(5000);
-//            TestUtil.keyboradActionRobotPressEsc();
-//            TestUtil.waiting(3000);
-
-            String MainWindow=driver.getWindowHandle();
-            System.out.println(MainWindow);
-            Set<String> s1=driver.getWindowHandles();
-            Iterator<String> i1=s1.iterator();
-            while(i1.hasNext())
-            {
-                String ChildWindow=i1.next();
-                if(!MainWindow.equalsIgnoreCase(ChildWindow))
-                {
-//                    TestUtil.waiting(5000);
-//                    TestUtil.keyboradActionMethodPressEsc();
-//                    TestUtil.waiting(5000);
-//                    TestUtil.keyboradActionRobotPressEsc();
-//                    TestUtil.waiting(3000);
+            Iterator<String> i1 = s1.iterator();
+            while (i1.hasNext()) {
+                String ChildWindow = i1.next();
+                if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
                     // Switching to Child window
                     driver.switchTo().window(ChildWindow);
                     // Closing the Child Window.
@@ -526,23 +526,10 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
             driver.switchTo().window(MainWindow);
 
-//            String current_window = driver.getWindowHandle();
-//            Set<String> all_Windows = driver.getWindowHandles();
-//            Iterator<String> i = all_Windows.iterator();
-//            while(i.hasNext()){
-//                String child_window = i.next();
-//                if(!child_window.equalsIgnoreCase(current_window)){
-//                    driver.switchTo().window(child_window);
-//                    System.out.println("The current window is "+child_window);
-//                    // close() method closes the child window in focus, the parent window is still open
-//                    driver.close();
-//                } else {
-//                    System.out.println("No other window open");
-//                }
-//            }
-
-
-
+//            ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+//            driver.switchTo().window(tabs2.get(1));
+//            driver.close();
+//            driver.switchTo().window(tabs2.get(0));
 
 //            String receiptApplicationNo = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabApplicationNoUI);
 //            System.out.println("----------------" + receiptApplicationNo);
@@ -551,163 +538,137 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 //            String verifyApplicationNo = finalReceiptApplicationNo;
 
 //            TestUtil.waiting(1000);
-//            String verifyApplicationNo =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabApplicationNoUI);
-////            String receiptMobileNo = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabMobileNoUI);
-////            System.out.println("----------------" + receiptMobileNo);
-////            String[] outputMobileNo = receiptMobileNo.split(": ");
-////            String finalReceiptMobileNo = outputMobileNo[1];
-////            String verifyMobileNo = finalReceiptMobileNo;
+////            String verifyApplicationNo =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabApplicationNoUI);
+//////            String receiptMobileNo = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabMobileNoUI);
+//////            System.out.println("----------------" + receiptMobileNo);
+//////            String[] outputMobileNo = receiptMobileNo.split(": ");
+//////            String finalReceiptMobileNo = outputMobileNo[1];
+//////            String verifyMobileNo = finalReceiptMobileNo;
 //            TestUtil.waiting(1000);
-//            String verifyMobileNo =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabMobileNoUI);
-////            String receiptReceiptNo = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabReceiptNoUI);
-////            System.out.println("----------------" + receiptReceiptNo);
-////            String[] outputReceiptNo = receiptReceiptNo.split(": ");
-////            String finalReceiptReceiptNo = outputReceiptNo[1];
-////            String verifyReceiptNo = finalReceiptReceiptNo;
+////            String verifyMobileNo =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabMobileNoUI);
+//////            String receiptReceiptNo = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabReceiptNoUI);
+//////            System.out.println("----------------" + receiptReceiptNo);
+//////            String[] outputReceiptNo = receiptReceiptNo.split(": ");
+//////            String finalReceiptReceiptNo = outputReceiptNo[1];
+//////            String verifyReceiptNo = finalReceiptReceiptNo;
 //            TestUtil.waiting(1000);
-//            String verifyReceiptNo =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabReceiptNoUI);
-////            String receiptConsumerName = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabConsumerNameUI);
-////            System.out.println("----------------" + receiptReceiptNo);
-////            String[] outputConsumerName = receiptConsumerName.split(": ");
-////            String finalReceiptConsumerName = outputConsumerName[1];
-////            String verifyConsumerName = finalReceiptConsumerName;
+////            String verifyReceiptNo =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabReceiptNoUI);
+//////            String receiptConsumerName = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabConsumerNameUI);
+//////            System.out.println("----------------" + receiptReceiptNo);
+//////            String[] outputConsumerName = receiptConsumerName.split(": ");
+//////            String finalReceiptConsumerName = outputConsumerName[1];
+//////            String verifyConsumerName = finalReceiptConsumerName;
 //            TestUtil.waiting(1000);
-//            String verifyConsumerName =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabConsumerNameUI);
-//
+////            String verifyConsumerName =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabConsumerNameUI);
+////
 //            TestUtil.waiting(1000);
-//            String verifyReceiptDate =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabReceiptDateHeader);
-//
+////            String verifyReceiptDate =  TestUtil.getSplitStringOfFirstArray(comConsumerRegistrationPaymentReceiptNewTabReceiptDateHeader);
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptHeader);
-//
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabApplicationNoHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabApplicationNoUI);
 //            TestUtil.waiting(1000);
-//            Assert.assertEquals(verifyApplicationNo,Application_No, "Application_No Does Not Match");
-//
+////            Assert.assertEquals(verifyApplicationNo,Application_No, "Application_No Does Not Match");
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabMobileNoHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabMobileNoUI);
 //            TestUtil.waiting(1000);
-//            Assert.assertEquals(verifyMobileNo,MobileNo, "Mobile No Does Not Match");
-//
+////            Assert.assertEquals(verifyMobileNo,MobileNo, "Mobile No Does Not Match");
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabConsumerNameHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabConsumerNameUI);
 //            TestUtil.waiting(1000);
-//            Assert.assertEquals(verifyConsumerName,consumerName.toUpperCase(), "Consumer Name Does Not Match");
-//
+////            Assert.assertEquals(verifyConsumerName,consumerName.toUpperCase(), "Consumer Name Does Not Match");
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI);
 //            TestUtil.waiting(1000);
-//            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
-//
+////            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabParticularTableHeader);
-//
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabAmountTableHeader);
-//
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabParticularBasicAdministrativeChargesHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabParticularBasicAdministrativeChargesUI);
 //            TestUtil.waiting(1000);
-//            Double basicAdministrativeChargesReceiptTable = Double.parseDouble(comConsumerRegistrationPaymentReceiptNewTabParticularBasicAdministrativeChargesUI.getText());
-//            Assert.assertEquals(basicAdministrativeChargesReceiptTable,basicAdministrativeCharges , "Basic Administrative Charges  Does Not Match");
-//            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
-//
+////            Double basicAdministrativeChargesReceiptTable = Double.parseDouble(comConsumerRegistrationPaymentReceiptNewTabParticularBasicAdministrativeChargesUI.getText());
+////            Assert.assertEquals(basicAdministrativeChargesReceiptTable,basicAdministrativeCharges , "Basic Administrative Charges  Does Not Match");
+////            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI);
 //            TestUtil.waiting(1000);
-//            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
-//
+////            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI);
 //            TestUtil.waiting(1000);
-//            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
-//
+////            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
+////
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateHeader);
 //            TestUtil.waiting(1000);
 //            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI);
 //            TestUtil.waiting(1000);
-//            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+////            Assert.assertEquals(comConsumerRegistrationPaymentReceiptNewTabReceiptDateUI.getText(),dateInString, "Receipt Date  Does Not Match");
 
 
         }
 
 
-
-
     }
 
+    public void verifySwitchTabClose(){
+        comConsumerRegistrationPaymentReceiptApplicationNoInput.sendKeys("JP30000211");
+        comConsumerRegistrationPaymentReceiptSearchBtn.click();
+        TestUtil.waiting(1000);
 
 
 
+        comConsumerRegistrationPaymentReceiptPaymentModeClick.click();
+        TestUtil.waiting(1000);
 
+        comConsumerRegistrationPaymentReceiptPaymentModeCashSelect.click();
+        TestUtil.waiting(1000);
 
+        comConsumerRegistrationPaymentReceiptSaveAndPrintBtn.click();
+        TestUtil.waiting(1000);
 
+        String parent = driver.getWindowHandle();
+        System.out.println("Thanks Click"+ driver.getWindowHandle());
+        TestUtil.waiting(1000);
 
+        comConsumerRegistrationPaymentReceiptConfirmPopUpBTN.click();
+        System.out.println("Thanks Click");
+        for (String child : driver.getWindowHandles()) {
+            System.out.println("Thanks Click 1");
+                driver.switchTo().window(child);
+            TestUtil.waiting(1000);
+            }
+            TestUtil.waiting(1000);
+            driver.close();
+            driver.switchTo().window(parent);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }

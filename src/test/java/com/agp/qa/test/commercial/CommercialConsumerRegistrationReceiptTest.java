@@ -35,7 +35,7 @@ public class CommercialConsumerRegistrationReceiptTest extends TestBase {
     public void setUp() {
 //        initialization();
 //        loginPage = new LoginPage();
-        dashboardPage = new DashboardPage();
+//        dashboardPage = new DashboardPage();
 //        dashboardPage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 //        dashboardPage.dashboardVerify();
 //        dashboardPage.commercialNewConnectionClick();
@@ -63,6 +63,7 @@ public class CommercialConsumerRegistrationReceiptTest extends TestBase {
         TestUtil.waiting(3000);
         commercialConsumerRegistrationReceipt = new CommercialConsumerRegistrationReceipt();
         commercialConsumerRegistrationReceipt.paymentReceiptVerifyAmount();
+//        commercialConsumerRegistrationReceipt.verifySwitchTabClose();
 
     }
 

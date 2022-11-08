@@ -9,6 +9,7 @@ import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -38,15 +39,15 @@ public class TestUtil extends TestBase {
         try {
             File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String currentDir = System.getProperty("user.dir");
-            FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() +  ".png"));
-        }catch (Exception e){
+            FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
 
-    public String  getScreenShot(String testCaseName, WebDriver driver) throws IOException{
-        TakesScreenshot ts = (TakesScreenshot)driver;
+    public String getScreenShot(String testCaseName, WebDriver driver) throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
 
         // Original
@@ -76,15 +77,15 @@ public class TestUtil extends TestBase {
 
     // Use the Below code method for swtiching between the multiple Tab
 
-//    Set<String> handles = driver.getWindowHandles();
+    //    Set<String> handles = driver.getWindowHandles();
 //    List<String> hList = new ArrayList<String >(handles);
 //    if(switchToRightWindow(""), hList){
 //        System.out.println(driver.getCurrentUrl()+":"+driver.getTitle());
 //    }
-    public static boolean switchToRightWindow(String windowTitle, List<String> hList){
-        for (String e: hList) {
+    public static boolean switchToRightWindow(String windowTitle, List<String> hList) {
+        for (String e : hList) {
             String title = driver.switchTo().window(e).getTitle();
-            if (title.contains(windowTitle)){
+            if (title.contains(windowTitle)) {
                 System.out.println("Found the right window");
                 return true;
             }
@@ -92,13 +93,13 @@ public class TestUtil extends TestBase {
         return false;
     }
 
-    public static void switchToParentWindowId(String parentWindowId){
+    public static void switchToParentWindowId(String parentWindowId) {
         driver.switchTo().window(parentWindowId);
     }
 
-    public static void closeAllWindows(List<String> hList, String parentWindowId){
-        for (String e: hList) {
-            if (!e.equals(parentWindowId)){
+    public static void closeAllWindows(List<String> hList, String parentWindowId) {
+        for (String e : hList) {
+            if (!e.equals(parentWindowId)) {
                 driver.switchTo().window(e).close();
             }
         }
@@ -149,58 +150,58 @@ public class TestUtil extends TestBase {
         }
     }
 
-    public static void scrollToTop(){
+    public static void scrollToTop() {
         try {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollTo(1000,0)");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void isSelected(WebElement webElement){
+    public static void isSelected(WebElement webElement) {
         try {
-            if (!webElement.isSelected()){
+            if (!webElement.isSelected()) {
                 webElement.click();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void isSelectedExcel(WebElement webElement, String value){
+    public static void isSelectedExcel(WebElement webElement, String value) {
         try {
-            if (!webElement.isSelected()){
+            if (!webElement.isSelected()) {
                 webElement.click();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void actionMethod(WebElement webElement){
+    public static void actionMethod(WebElement webElement) {
         try {
             Actions action = new Actions(driver);
             action.moveToElement(webElement).click().build().perform();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void actionMethodDropDown(WebElement webElement){
+    public static void actionMethodDropDown(WebElement webElement) {
         try {
             Actions action = new Actions(driver);
             action.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void selectMethodExcelString(WebElement webElement, String value){
+    public static void selectMethodExcelString(WebElement webElement, String value) {
         try {
             Select select = new Select(webElement);
             select.selectByVisibleText(value);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -246,14 +247,13 @@ public class TestUtil extends TestBase {
         }
     }
 
-    public static void clickExcel (WebElement clickWebElement, String value) {
+    public static void clickExcel(WebElement clickWebElement, String value) {
         try {
             clickWebElement.click();
         } catch (NoSuchElementException e) {
             System.out.println("Bad Luck! No Such Element Found for the Locator " + clickWebElement);
         }
     }
-
 
 
     public static void sendKeyNormalExcel(WebElement sendKeyNormalElement, String value) {
@@ -264,14 +264,14 @@ public class TestUtil extends TestBase {
         }
     }
 
-//
-public static void sendKeyNormal(WebElement sendKeyNormalElement) {
-    try {
-        sendKeyNormalElement.sendKeys();
-    } catch (NoSuchElementException e) {
-        System.out.println("Bad Luck! No Such Element Found for the Locator " + sendKeyNormalElement);
+    //
+    public static void sendKeyNormal(WebElement sendKeyNormalElement) {
+        try {
+            sendKeyNormalElement.sendKeys();
+        } catch (NoSuchElementException e) {
+            System.out.println("Bad Luck! No Such Element Found for the Locator " + sendKeyNormalElement);
+        }
     }
-}
 
     public static String getTextFromUI(WebElement getTextUI) {
         String value = null;
@@ -283,7 +283,7 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
         return value;
     }
 
-    public static String getSplitStringOfFirstArray(WebElement getStringForStill){
+    public static String getSplitStringOfFirstArray(WebElement getStringForStill) {
         String fullString = TestUtil.getTextFromUI(getStringForStill);
 //            System.out.println("----------------" + fullString);
         String[] splitingAtringIntoArrays = fullString.split(": ");
@@ -291,7 +291,6 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
         String verifyFinalString = finalSplitStringToBeUse;
         return verifyFinalString;
     }
-
 
 
     public static void sendKeyWithDataProperties(WebElement sendKeyWithDataElementWebElement, String str) {
@@ -313,7 +312,7 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
 
     public static void clearElementThroughKeys(WebElement clearElement) {
         try {
-            clearElement.sendKeys(Keys.CONTROL, "a",Keys.BACK_SPACE);
+            clearElement.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
         } catch (NoSuchElementException e) {
             System.out.println("Bad Luck! No Such Element Found for the Locator " + clearElement);
         }
@@ -321,7 +320,7 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
 
     public static void useTabElementThroughKeys(WebElement clearElement) {
         try {
-            clearElement.sendKeys(Keys.CONTROL, "a",Keys.TAB);
+            clearElement.sendKeys(Keys.CONTROL, "a", Keys.TAB);
         } catch (NoSuchElementException e) {
             System.out.println("Bad Luck! No Such Element Found for the Locator " + clearElement);
         }
@@ -359,20 +358,15 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
 //        return dateInString;
 //    }
 
-    public static Integer generateRandomNumber(){
+    public static Integer generateRandomNumber() {
         Random random = new Random();
         Integer randomNumberGenerated = random.nextInt();
         return randomNumberGenerated;
     }
 
 
-
-    public static void keyboradActionMethodPressEsc() {
+    public static void keyboardActionMethodPressEsc() {
         try {
-
-//            Robot r = new Robot();
-//            r.keyPress(KeyEvent.VK_ESCAPE);
-//            r.keyRelease(KeyEvent.VK_ESCAPE);
             Actions action = new Actions(driver);
             action.sendKeys(Keys.ESCAPE).build().perform();
         } catch (Exception ae) {
@@ -381,7 +375,9 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
 
     }
 
-    public static void keyboradActionRobotPressEsc() {
+
+
+    public static void keyboardActionRobotPressEsc() {
         try {
 
             Robot r = new Robot();
@@ -394,14 +390,13 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
 
     }
 
-    public static void highlightElement(WebElement element){
+    public static void highlightElement(WebElement element) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].setAttribute('style', 'border: 3px solid red;');", element);
 
         try {
             Thread.sleep(500);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             ex.getMessage();
         }
         jse.executeScript("arguments[0].style.border=''", element);
@@ -432,7 +427,8 @@ public static void sendKeyNormal(WebElement sendKeyNormalElement) {
         }
         return false;
     }
-    public static void isDisplayed(){
+
+    public static void isDisplayed() {
 
     }
 

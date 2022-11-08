@@ -123,22 +123,22 @@ public class CommercialUploadRegistrationFormDocument extends TestBase {
 
             String EmailID = reader.getCellData("Commercial", "Email ID", rowNum);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentApplicationNoHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentApplicationNoInput);
             TestUtil.sendKeyNormalExcel(comUploadRegistrationFormDocumentApplicationNoInput, Application_No);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentSearchBtn);
             TestUtil.waiting(500);
             comUploadRegistrationFormDocumentSearchBtn.click();
 
-            TestUtil.waiting(3000);
+            TestUtil.waiting(1500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerBasicDetailsHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerFullNameOrganisationNameHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerFullNameOrganisationNameInput);
@@ -149,35 +149,35 @@ public class CommercialUploadRegistrationFormDocument extends TestBase {
             Assert.assertEquals(NameOfEstablishment.toUpperCase(), comUploadRegistrationFormDocumentCustomerFullNameOrganisationNameInput.getAttribute("value"), "Organisation Name Does Not Match");
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerAddressHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerAddressInput);
             TestUtil.waiting(500);
             Assert.assertEquals(Address.toUpperCase(), comUploadRegistrationFormDocumentCustomerAddressInput.getAttribute("value"), "Address Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerCityHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerCityInput);
             TestUtil.waiting(500);
             Assert.assertEquals(City, comUploadRegistrationFormDocumentCustomerCityInput.getAttribute("value"), "City Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerPinCodeHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerPinCodeInput);
             TestUtil.waiting(500);
             Assert.assertEquals(Pincode, comUploadRegistrationFormDocumentCustomerPinCodeInput.getAttribute("value"), "PinCode Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerPhoneAlternateMobileNumberHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerPhoneAlternateMobileNumberInput);
             TestUtil.waiting(500);
             Assert.assertEquals(PhoneNo, comUploadRegistrationFormDocumentCustomerPhoneAlternateMobileNumberInput.getAttribute("value"), "Phone No Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.scrollTo(comUploadRegistrationFormDocumentCustomerMobileHeader);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerMobileHeader);
             TestUtil.waiting(500);
@@ -185,35 +185,35 @@ public class CommercialUploadRegistrationFormDocument extends TestBase {
             TestUtil.waiting(500);
             Assert.assertEquals(MobileNo, comUploadRegistrationFormDocumentCustomerMobileInput.getAttribute("value"), "Mobile No Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerEmailIdHeader);
             TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerEmailIdInput);
             TestUtil.waiting(500);
             Assert.assertEquals(EmailID.toUpperCase(), comUploadRegistrationFormDocumentCustomerEmailIdInput.getAttribute("value"), "Email ID Does Not Match");
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.scrollTo(comUploadRegistrationFormDocumentCustomerUploadRegistrationFormHeader);
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerUploadRegistrationFormHeader);
             TestUtil.waiting(500);
             comUploadRegistrationFormDocumentCustomerUploadRegistrationFormInput.sendKeys((System.getProperty("user.dir") + "\\src\\main\\java\\com\\agp\\qa\\testdata\\Google.png"));
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentCustomerUploadSupportingDocumentHeader);
             TestUtil.waiting(500);
             comUploadRegistrationFormDocumentCustomerUploadSupportingDocumentInput.sendKeys((System.getProperty("user.dir") + "\\src\\main\\java\\com\\agp\\qa\\testdata\\Google1.png"));
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentClearBtn);
 
 
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             TestUtil.highlightElement(comUploadRegistrationFormDocumentSaveBtn);
-            TestUtil.waiting(1000);
+            TestUtil.waiting(500);
             comUploadRegistrationFormDocumentSaveBtn.click();
-            TestUtil.waiting(2000);
+            TestUtil.waiting(1000);
 
         }
 
