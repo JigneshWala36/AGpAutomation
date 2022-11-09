@@ -47,7 +47,7 @@
             </class>
 
 
-<!--            &lt;!&ndash;                   Gas In                                        &ndash;&gt;-->
+            <!--            &lt;!&ndash;                   Gas In                                        &ndash;&gt;-->
             <class name="com.agp.qa.test.gasIn.GasInRouteAndMeterAssignmentFormTest">
                 <methods>
                     <include name="assigningConsumerDataForGasIn"/>
@@ -60,7 +60,7 @@
             </class>
 
 
-<!--            &lt;!&ndash;                   Billing                                        &ndash;&gt;-->
+            <!--            &lt;!&ndash;                   Billing                                        &ndash;&gt;-->
             <class name="com.agp.qa.test.billing.BillingGenerateBillTest">
                 <methods>
                     <include name="meterReadingForTheGeneratedMRO"/>
