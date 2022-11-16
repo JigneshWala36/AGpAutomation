@@ -376,7 +376,6 @@ public class TestUtil extends TestBase {
     }
 
 
-
     public static void keyboardActionRobotPressEsc() {
         try {
 
@@ -476,70 +475,132 @@ public class TestUtil extends TestBase {
             return a;
         }
 
-
     }
 
-    public void editIconOfAdded(String addedDataName, List<WebElement> tableDataColumnName, List<String> storeTableDataInString, ){
+    public void editIconOfAdded(String addedDataName, String tableDataColumnNameXpath, String nextBtnXapthValue, String editIconXpathValue) {
 
-
-
-    }
-
-    public void editDataFromDynamicTable(){
-        String bankName = "KALUPUR COMMERCIAL CO-OP BANK LTD";
-
-        List<WebElement> namesElements = driver.findElements(By.xpath("//tr//td[3]"));
+        List<WebElement> namesElements = driver.findElements(By.xpath(tableDataColumnNameXpath));
 
         List<String> names = new ArrayList<String>();
 
-//        for (WebElement nameElement : namesElements) {
+        for (
+                WebElement nameElement : namesElements) {
+                 names.add(nameElement.getText());
+        }
+
+//        public void loopingForValidData(){
+//
+//            int size = namesElements.size();
+//            System.out.println(size);
+//            for (int i = 0;i < size; i++) {
+//                String get_text = namesElements.get(i).getText();
+//                System.out.println(get_text);
+//                if (bankName.equals(get_text)) {
+//                    System.out.println("++++++++++++++++++++++++++++" + "Text verified");
+//
+//                    // Edit Icon Click List of WebElements of the Tabled
+//                    List<WebElement> finalElements = driver.findElements(By.xpath(editIconXpathValue));
+//
+//                    System.out.println(finalElements.get(i));
+//
+//                    Thread.sleep(1000);
+//                    finalElements.get(i).click();
+//                    ;
+//                    System.out.println("verified");
+////                    break;
+//
+//                }
+//            }
+//
+//        }
+
+    }
+
+    public void editIconClickInDynamicValueTable() {
+
+    }
+
+//    public void editDataFromDynamicTable() throws InterruptedExceptionString {
+//
+//        bankName = "STATE BANK OF TRAVANCORE";
+//
+//        List<WebElement> namesElements = driver.findElements(By.xpath("//tr//td[3]"));
+//
+//        List<String> names = new ArrayList<String>();
+//
+//        for (
+//                WebElement nameElement : namesElements) {
 //
 //            names.add(nameElement.getText());
 //
 //        }
-
-//        WebElement nextBtn = driver.findElement(By.xpath("//a[contains(text(),'Next')]"));
-
-        while (!names.contains(bankName)) {
-
-            WebElement nextBtn = driver.findElement(By.xpath("//a[contains(text(),'Next')]"));
-
-            nextBtn.click();
-
-            Thread.sleep(1000);
-
-            namesElements = driver.findElements(By.xpath("//tr//td[3]"));
-
-            for (WebElement namesElement : namesElements) {
-
-                names.add(namesElement.getText());
-
-            }
-
-            int size = namesElements.size();
-            System.out.println(size);
-            for (int i = 0; i < size; i++) {
-                String get_text = namesElements.get(i).getText();
-                System.out.println(get_text);
-                if (bankName.equals(get_text)) {
-                    System.out.println("++++++++++++++++++++++++++++" + "Text verified");
-
-                    // Edit Icon Click List of WebElements of the Tabled
-                    List<WebElement> finalElements = driver.findElements(By.xpath("//tr//td[6]//button[@type='button']//i[@class='fa fa-pencil']"));
-
-                    System.out.println(finalElements.get(i));
-
-                    Thread.sleep(1000);
-                    finalElements.get(i).click();
-                    ;
-                    System.out.println("verified");
-//                    break;
-
-                }
-            }
-
-        }
-    }
+//
+//        int size = namesElements.size();
+//        System.out.println(size);
+//        for (int i = 0;i < size; i++) {
+//            String get_text = namesElements.get(i).getText();
+//            System.out.println(get_text);
+//            if (bankName.equals(get_text)) {
+//                System.out.println("++++++++++++++++++++++++++++" + "Text verified");
+//
+//                // Edit Icon Click List of WebElements of the Tabled
+//                List<WebElement> finalElements = driver.findElements(By.xpath("//tr//td[6]//button[@type='button']//i[@class='fa fa-pencil']"));
+//
+//                System.out.println(finalElements.get(i));
+//
+//                Thread.sleep(1000);
+//                finalElements.get(i).click();
+//                ;
+//                System.out.println("verified");
+////                    break;
+//
+//            }
+//        }
+//
+////        WebElement nextBtn = driver.findElement(By.xpath("//a[contains(text(),'Next')]"));
+//
+//        while (!names.contains(bankName)) {
+//
+//            WebElement nextBtn = driver.findElement(By.xpath("//a[contains(text(),'Next')]"));
+//
+//            nextBtn.click();
+//
+//            Thread.sleep(1000);
+//
+//            namesElements = driver.findElements(By.xpath("//tr//td[3]"));
+//
+//            for (WebElement namesElement : namesElements) {
+//
+//                names.add(namesElement.getText());
+//
+//            }
+//
+//            int size1 = namesElements.size();
+//            System.out.println(size1);
+//            for (int i = 0; i < size1; i++) {
+//                String get_text = namesElements.get(i).getText();
+//                System.out.println(get_text);
+//                if (bankName.equals(get_text)) {
+//                    System.out.println("++++++++++++++++++++++++++++" + "Text verified");
+//
+//                    // Edit Icon Click List of WebElements of the Tabled
+//                    List<WebElement> finalElements = driver.findElements(By.xpath("//tr//td[6]//button[@type='button']//i[@class='fa fa-pencil']"));
+//
+//                    System.out.println(finalElements.get(i));
+//
+//                    Thread.sleep(1000);
+//                    finalElements.get(i).click();
+//                    ;
+//                    System.out.println("verified");
+////                    break;
+//
+//                }
+//            }
+//
+//        }
+//
+//
+//    }
 
 
 }
