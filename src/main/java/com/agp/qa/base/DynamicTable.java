@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public class TrailClass {
+public class DynamicTable {
 
     public static void main(String[] args) throws InterruptedException {
         System.setProperty(
