@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,91 @@ public class MasterBankMaster extends TestBase {
     @FindBy(xpath = "//h2[contains(text(),'Bank Master')]")
     public static WebElement masterBankMasterMainHeader;
 
-    static String bankName = data.getProperty("masterBankName");
+    @FindBy(xpath = "//button[normalize-space()='Add Bank']")
+    public static WebElement masterBankMasterAddBankClick;
+
+    @FindBy(xpath = "//input[@type='search']")
+    public static WebElement masterBankMasterSearchInput;
+
+    @FindBy(xpath = "//h4[@class='modal-title']")
+    public static WebElement masterBankMasterAddNewBankPopUpHeader;
+
+    @FindBy(xpath = "//label[@for='Bank_Code']")
+    public static WebElement masterBankMasterAddNewBankPopUpBankCodeHeader;
+
+    @FindBy(xpath = "//input[@id='BankCode']")
+    public static WebElement masterBankMasterAddNewBankPopUpBankCodeInput;
+
+    @FindBy(xpath = "//label[@for='Bank_Name']")
+    public static WebElement masterBankMasterAddNewBankPopUpBankNameHeader;
+
+    @FindBy(xpath = "//input[@id='BankName']")
+    public static WebElement masterBankMasterAddNewBankPopUpBankNameInput;
+
+    @FindBy(xpath = "//button[normalize-space()='Close']")
+    public static WebElement masterBankMasterAddNewBankPopUpCloseBtn;
+
+    @FindBy(xpath = "//span[@aria-hidden='true']")
+    public static WebElement masterBankMasterAddNewBankPopUpXIconClick;
+
+    @FindBy(xpath = "//button[@id='btnSave']")
+    public static WebElement masterBankMasterAddNewBankPopUpSaveBtn;
+
+
+    public void verifyBankMasterPageOpenCloseOfAddBankPopUp() {
+
+        TestUtil.waiting(1000);
+        TestUtil.highlightElement(masterBankMasterMainHeader);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddBankClick);
+        TestUtil.waiting(500);
+        masterBankMasterAddBankClick.click();
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpCloseBtn);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpCloseBtn.click();
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddBankClick);
+        TestUtil.waiting(500);
+        masterBankMasterAddBankClick.click();
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpXIconClick);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpXIconClick.click();
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddBankClick);
+        TestUtil.waiting(500);
+        masterBankMasterAddBankClick.click();
+
+
+    }
+
+    public void verifyAddBankDetails() {
+
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpHeader);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankCodeHeader);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankCodeInput);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpBankCodeInput.sendKeys(data.getProperty("newAddedBankCodeInBankMaster"));
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankNameHeader);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankNameInput);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpBankNameInput.sendKeys(data.getProperty("newAddedBankNameInBankMaster"));
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpSaveBtn);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpSaveBtn.click();
+        masterBankMasterAddNewBankPopUpSaveBtn.click();
+        TestUtil.waiting(5000);
+
+    }
+
+    static String bankName = data.getProperty("newAddedBankNameInBankMaster");
 
 
     public void clickEditIconFromTheTableList(List<WebElement> listOfBankNameElement) {
@@ -48,7 +133,7 @@ public class MasterBankMaster extends TestBase {
 
     }
 
-    public void verifyBankNameFoeEdit() {
+    public void verifyBankNameForEdit() {
 
         TestUtil.waiting(2000);
         TestUtil.highlightElement(masterBankMasterMainHeader);
@@ -96,5 +181,44 @@ public class MasterBankMaster extends TestBase {
 
 
 //    System.out.println(data.getProperty("masterBankName"));
+    }
+
+    public void verifyEditDataAndEditBankData() {
+
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankCodeHeader);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankCodeInput);
+        TestUtil.waiting(500);
+        Assert.assertEquals(data.getProperty("newAddedBankCodeInBankMaster"), masterBankMasterAddNewBankPopUpBankCodeInput.getAttribute("value"), "Bank Code not Match");
+        TestUtil.waiting(500);
+        TestUtil.clearElementThroughKeys(masterBankMasterAddNewBankPopUpBankCodeInput);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankCodeInput);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpBankCodeInput.sendKeys(data.getProperty("editAddedBankCodeInBankMaster"));
+
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankNameHeader);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankNameInput);
+        TestUtil.waiting(500);
+        Assert.assertEquals(data.getProperty("newAddedBankNameInBankMaster"), masterBankMasterAddNewBankPopUpBankNameInput.getAttribute("value"), "Bank Name not Match");
+        TestUtil.waiting(500);
+        TestUtil.clearElementThroughKeys(masterBankMasterAddNewBankPopUpBankNameInput);
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpBankNameInput);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpBankNameInput.sendKeys(data.getProperty("EditAddedBankNameInBankMaster"));
+
+
+        TestUtil.waiting(500);
+        TestUtil.highlightElement(masterBankMasterAddNewBankPopUpSaveBtn);
+        TestUtil.waiting(500);
+        masterBankMasterAddNewBankPopUpSaveBtn.click();
+        masterBankMasterAddNewBankPopUpSaveBtn.click();
+        TestUtil.waiting(5000);
+
+
     }
 }

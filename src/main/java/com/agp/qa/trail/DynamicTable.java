@@ -19,12 +19,15 @@ public class DynamicTable extends TestBase {
     }
 
 //    static String bankName = data.getProperty("masterBankName");
-//    static String bankName = data.getProperty("masterBankName");
 
-    public static void main(String[] args) throws InterruptedException {
-        System.setProperty(
-                "webdriver.chrome.driver",
-                "D:\\Jignesh\\Driver\\Chrome 107\\chromedriver.exe");
+
+
+
+    public static String bankName = data.getProperty("masterBankName");
+
+    public void verifyEditIcon() throws InterruptedException {
+
+        System.setProperty("webdriver.chrome.driver", "D:\\Jignesh\\Driver\\Chrome 107\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 
@@ -48,15 +51,9 @@ public class DynamicTable extends TestBase {
         driver.findElement(By.xpath("//a[contains(text(),'Bank Master')]")).click();
         Thread.sleep(3000);
 
-//        String before_xpath = //tr//td[3];
-//        String after_xpath = ;
 
 //        String bankName = "STATE BANK OF TRAVANCORE";
-//        String bankName = "NEW INDIA CO OPERATIVE BANK";
 //        String bankName = data.getProperty("masterBankName");
-//        System.out.println(data.getProperty("masterBankName"));
-//        System.out.println(data.getProperty("masterBankName"));
-        String bankName = data.getProperty("masterBankName");
 
         List<WebElement> namesElements = driver.findElements(By.xpath("//tr//td[3]"));
 
@@ -140,7 +137,12 @@ public class DynamicTable extends TestBase {
             }
 
         }
+    }
 
+    public static void main(String[] args) throws InterruptedException {
+
+        DynamicTable dynamicTable = new DynamicTable();
+        dynamicTable.verifyEditIcon();
 
     }
 }

@@ -3,6 +3,8 @@ package com.agp.qa.pages.commercial;
 import com.agp.qa.base.TestBase;
 import com.agp.qa.util.TestUtil;
 import com.agp.qa.util.Xls_Reader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -472,64 +474,35 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
             TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptRecordSavedSuccessfullyPopUp);
             TestUtil.waiting(500);
 
-
-            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConfirmPopUpBTN);
-            TestUtil.waiting(1000);
-            String MainWindow = driver.getWindowHandle();
-            System.out.println("++++++++++++++++++++++++++++++++++"+ MainWindow);
-            Set<String> s1 = driver.getWindowHandles();
-
-            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConfirmPopUpBTN);
-            TestUtil.waiting(1000);
-
-//            String parent = driver.getWindowHandle();
-            comConsumerRegistrationPaymentReceiptConfirmPopUpBTN.click();
-            TestUtil.waiting(2000);
 //
-            TestUtil.keyboardActionRobotPressEsc();
-
-//            for (String child : driver.getWindowHandles()) {
-//                driver.switchTo().window(child);
-//            }
+//            TestUtil.highlightElement(comConsumerRegistrationPaymentReceiptConfirmPopUpBTN);
 //            TestUtil.waiting(1000);
-//            driver.close();
-//            driver.switchTo().window(parent);
 
+            String parent = driver.getWindowHandle();
+            System.out.println("Parent Window " + parent);
 
-//            String MainWindow=driver.getWindowHandle();
-//
-//            Set<String> s1 = driver.getWindowHandles();
+//            comConsumerRegistrationPaymentReceiptConfirmPopUpBTN.click();
+            driver.findElement(By.xpath("//button[@class='confirm']")).click();
+//            TestUtil.waiting(1000);
+
+            driver.switchTo().window(driver.getWindowHandles().stream().filter(handle -> !handle.equals(driver.getWindowHandle())).findAny().get());
             TestUtil.waiting(1000);
-//            driver.switchTo().window(MainWindow);
 
+            System.out.println(" Child Window ");
 
-//            TestUtil.keyboardActionMethodPressEsc();
-////            TestUtil.keyboardActionRobotPressEsc();
+            driver.findElement(By.tagName("body")).sendKeys(Keys.TAB, Keys.ENTER);
+            TestUtil.waiting(1000);
 
-            // ======================== Switching to Other Tab ========================================
-
-
-//            String MainWindow = driver.getWindowHandle();
-//            System.out.println(MainWindow);
-//            Set<String> s1 = driver.getWindowHandles();
-
-            Iterator<String> i1 = s1.iterator();
-            while (i1.hasNext()) {
-                String ChildWindow = i1.next();
-                if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
-                    // Switching to Child window
-                    driver.switchTo().window(ChildWindow);
-                    // Closing the Child Window.
+            for (String handle : driver.getWindowHandles()) {
+                if (!handle.equals(parent)) {
+                    driver.switchTo().window(handle);
+                    TestUtil.waiting(2000);
                     driver.close();
                 }
             }
+            driver.switchTo().window(parent);
 
-            driver.switchTo().window(MainWindow);
 
-//            ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-//            driver.switchTo().window(tabs2.get(1));
-//            driver.close();
-//            driver.switchTo().window(tabs2.get(0));
 
 //            String receiptApplicationNo = TestUtil.getTextFromUI(comConsumerRegistrationPaymentReceiptNewTabApplicationNoUI);
 //            System.out.println("----------------" + receiptApplicationNo);
@@ -634,41 +607,6 @@ public class CommercialConsumerRegistrationReceipt extends TestBase {
 
         }
 
-
     }
-
-    public void verifySwitchTabClose(){
-        comConsumerRegistrationPaymentReceiptApplicationNoInput.sendKeys("JP30000211");
-        comConsumerRegistrationPaymentReceiptSearchBtn.click();
-        TestUtil.waiting(1000);
-
-
-
-        comConsumerRegistrationPaymentReceiptPaymentModeClick.click();
-        TestUtil.waiting(1000);
-
-        comConsumerRegistrationPaymentReceiptPaymentModeCashSelect.click();
-        TestUtil.waiting(1000);
-
-        comConsumerRegistrationPaymentReceiptSaveAndPrintBtn.click();
-        TestUtil.waiting(1000);
-
-        String parent = driver.getWindowHandle();
-        System.out.println("Thanks Click"+ driver.getWindowHandle());
-        TestUtil.waiting(1000);
-
-        comConsumerRegistrationPaymentReceiptConfirmPopUpBTN.click();
-        System.out.println("Thanks Click");
-        for (String child : driver.getWindowHandles()) {
-            System.out.println("Thanks Click 1");
-                driver.switchTo().window(child);
-            TestUtil.waiting(1000);
-            }
-            TestUtil.waiting(1000);
-            driver.close();
-            driver.switchTo().window(parent);
-
-    }
-
-
 }
+
