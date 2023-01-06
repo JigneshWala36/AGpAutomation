@@ -33,8 +33,7 @@ public class CommercialConsumerApplicationApprovalTest extends TestBase {
     CommercialConsumerApplicationApproval commercialConsumerApplicationApproval;
 
 
-
-    public CommercialConsumerApplicationApprovalTest(){
+    public CommercialConsumerApplicationApprovalTest() {
         super();
     }
 
@@ -73,7 +72,7 @@ public class CommercialConsumerApplicationApprovalTest extends TestBase {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         TestUtil.waiting(3000);
 //        driver.quit();
     }
