@@ -49,9 +49,6 @@ public class ListenerTest extends TestUtil implements ITestListener
 
 
 
-
-
-
     // When Test case get Skipped, this method is called.
     @Override
     public void onTestSkipped(ITestResult Result)

@@ -43,7 +43,7 @@ public class LoginPage extends TestBase {
 
     public DashboardPage login(String ur, String pwd) {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             TestUtil.highlightElement(agpLoginPageUserNameHeader);
 //            agpLoginPageUserNameInput.clear();
             TestUtil.highlightElement(agpLoginPageUserNameInput);
