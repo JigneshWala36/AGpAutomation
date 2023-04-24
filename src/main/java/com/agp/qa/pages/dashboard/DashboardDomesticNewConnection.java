@@ -1,6 +1,6 @@
 package com.agp.qa.pages.dashboard;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.domestic.DomesticConsumerAgreementPrintPage;
 import com.agp.qa.pages.domestic.DomesticCustomerAgreementApprovalPage;
 import com.agp.qa.pages.domestic.DomesticCustomerDetailUpdationPage;

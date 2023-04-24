@@ -1,6 +1,6 @@
 package com.agp.qa.test.listReport;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.dashboard.DashboardListReport;
 import com.agp.qa.pages.dashboard.DashboardPage;
 import com.agp.qa.pages.listReport.ListReportConsumerRegistrationReport;

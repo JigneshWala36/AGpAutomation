@@ -1,10 +1,8 @@
 package com.agp.qa.test.master;
 
-import com.agp.qa.base.TestBase;
-import com.agp.qa.pages.dashboard.DashboardGasIn;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.dashboard.DashboardMaster;
 import com.agp.qa.pages.dashboard.DashboardPage;
-import com.agp.qa.pages.gasIn.GasInRouteAndMeterAssignmentForm;
 import com.agp.qa.pages.login.LoginPage;
 import com.agp.qa.pages.master.MasterBankMaster;
 import com.agp.qa.util.TestUtil;

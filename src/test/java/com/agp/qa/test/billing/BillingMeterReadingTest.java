@@ -1,6 +1,6 @@
 package com.agp.qa.test.billing;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.billing.BillingGenerateBill;
 import com.agp.qa.pages.billing.BillingMeterReading;
 import com.agp.qa.pages.dashboard.DashboardBilling;

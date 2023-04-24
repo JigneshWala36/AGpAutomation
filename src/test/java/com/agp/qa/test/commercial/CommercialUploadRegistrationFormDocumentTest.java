@@ -1,6 +1,6 @@
 package com.agp.qa.test.commercial;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistration1;
 import com.agp.qa.pages.commercial.CommercialUploadRegistrationFormDocument;
 import com.agp.qa.pages.dashboard.DashboardCommercialNewConnection;

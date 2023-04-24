@@ -4,7 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import static com.agp.qa.base.TestBase.prop;
+import static com.agp.qa.x.TestBase.prop;
 
 public class ExtentReporterNG {
 

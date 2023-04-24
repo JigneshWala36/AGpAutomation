@@ -1,6 +1,6 @@
 package com.agp.qa.pages.commercial;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 
 public class CommercialCreateBulkDocumentPDF extends TestBase {
 }

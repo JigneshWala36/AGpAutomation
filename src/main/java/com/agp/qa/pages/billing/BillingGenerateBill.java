@@ -1,6 +1,6 @@
 package com.agp.qa.pages.billing;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.util.TestUtil;
 import com.agp.qa.util.Xls_Reader;
 import org.openqa.selenium.WebElement;

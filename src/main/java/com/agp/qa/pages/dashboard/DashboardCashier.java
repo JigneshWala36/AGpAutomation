@@ -1,6 +1,6 @@
 package com.agp.qa.pages.dashboard;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.cashier.*;
 import com.agp.qa.util.TestUtil;
 import org.openqa.selenium.WebElement;

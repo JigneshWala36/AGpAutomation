@@ -1,7 +1,6 @@
 package com.agp.qa.pages.dashboard;
 
-import com.agp.qa.base.TestBase;
-import com.agp.qa.pages.HR_Software.HR_SoftwareSystemUserList;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.accountant.AccountantCashPaidAgainstChequeReturn;
 import com.agp.qa.pages.accountant.AccountantDailyTaxInvoice;
 import com.agp.qa.pages.accountant.AccountantVATConsumer;

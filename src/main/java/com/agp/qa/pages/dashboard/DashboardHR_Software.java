@@ -1,9 +1,8 @@
 package com.agp.qa.pages.dashboard;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.HR_Software.HR_SoftwareRoleMaster;
 import com.agp.qa.pages.HR_Software.HR_SoftwareSystemUserList;
-import com.agp.qa.pages.cashier.CashierGenerateMiscBill;
 import com.agp.qa.util.TestUtil;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,16 +1,12 @@
 package com.agp.qa.test.commercial;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.commercial.CommercialConsumerApplicationApproval;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistration1;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistrationReceipt;
 import com.agp.qa.pages.commercial.CommercialUploadRegistrationFormDocument;
-import com.agp.qa.pages.dashboard.DashboardBilling;
 import com.agp.qa.pages.dashboard.DashboardCommercialNewConnection;
-import com.agp.qa.pages.dashboard.DashboardGasIn;
 import com.agp.qa.pages.dashboard.DashboardPage;
-import com.agp.qa.pages.gasIn.GasInRouteAndMeterApprovalForm;
-import com.agp.qa.pages.gasIn.GasInRouteAndMeterAssignmentForm;
 import com.agp.qa.pages.login.LoginPage;
 import com.agp.qa.util.TestUtil;
 import org.testng.annotations.AfterMethod;

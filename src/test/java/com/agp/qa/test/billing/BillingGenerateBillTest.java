@@ -1,6 +1,6 @@
 package com.agp.qa.test.billing;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.billing.BillingGenerateBill;
 import com.agp.qa.pages.dashboard.DashboardBilling;
 import com.agp.qa.pages.dashboard.DashboardGasIn;
@@ -9,8 +9,6 @@ import com.agp.qa.pages.gasIn.GasInRouteAndMeterApprovalForm;
 import com.agp.qa.pages.gasIn.GasInRouteAndMeterAssignmentForm;
 import com.agp.qa.pages.login.LoginPage;
 import com.agp.qa.util.TestUtil;
-import com.mongodb.DB;
-import org.openxml4j.document.wordprocessing.model.table.TableBorder;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

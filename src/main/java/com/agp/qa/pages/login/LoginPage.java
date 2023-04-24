@@ -1,6 +1,6 @@
 package com.agp.qa.pages.login;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.dashboard.DashboardPage;
 import com.agp.qa.util.TestUtil;
 import org.openqa.selenium.WebElement;
@@ -32,10 +32,9 @@ public class LoginPage extends TestBase {
 //    @FindBy(xpath = "//input[@id='Passwordddd']")
     public static WebElement agpLoginPagePasswordInput;
 
-//    @FindBy(xpath = "//input[@id='Password']")
+    //    @FindBy(xpath = "//input[@id='Password']")
     @FindBy(xpath = "//input[@id='Passwordddd']")
     public static WebElement agpLoginPagePasswordInput1;
-
 
 
     @FindBy(xpath = "//button[normalize-space()='Login']")
@@ -66,28 +65,58 @@ public class LoginPage extends TestBase {
 
     public DashboardPage login1(String ur, String pwd) throws InterruptedException {
 
-            Thread.sleep(2000);
-            TestUtil.highlightElement(agpLoginPageUserNameHeader);
+        Thread.sleep(2000);
+        TestUtil.highlightElement(agpLoginPageUserNameHeader);
 //            agpLoginPageUserNameInput.clear();
-            TestUtil.highlightElement(agpLoginPageUserNameInput);
-            TestUtil.waiting(1000);
-            agpLoginPageUserNameInput.sendKeys(ur);
-            TestUtil.highlightElement(agpLoginPagePasswordHeader);
+        TestUtil.highlightElement(agpLoginPageUserNameInput);
+        TestUtil.waiting(1000);
+        agpLoginPageUserNameInput.sendKeys(ur);
+        TestUtil.highlightElement(agpLoginPagePasswordHeader);
 //            agpLoginPagePasswordInput.clear();
-            TestUtil.highlightElement(agpLoginPagePasswordInput);
-            TestUtil.waiting(1000);
-            agpLoginPagePasswordInput1.sendKeys(pwd);
-            TestUtil.highlightElement(agpLoginPageLoginButton);
-            TestUtil.waiting(1000);
-            agpLoginPageLoginButton.click();
+        TestUtil.highlightElement(agpLoginPagePasswordInput);
+        TestUtil.waiting(500);
+        agpLoginPagePasswordInput.sendKeys(pwd);
+        TestUtil.highlightElement(agpLoginPageLoginButton);
+        TestUtil.waiting(500);
+        agpLoginPageLoginButton.click();
         TestUtil.waiting(3000);
 
         return new DashboardPage();
     }
 
 
+    public void countTest() throws InterruptedException {
+
+        agpLoginPageUserNameInput.sendKeys("J");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("i");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("g");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("n");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("e");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("s");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("h");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("@");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("g");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("m");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("a");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("i");
+        Thread.sleep(500);
+        agpLoginPageUserNameInput.sendKeys("l");
+        Thread.sleep(500);
 
 
+
+    }
 
 
 }

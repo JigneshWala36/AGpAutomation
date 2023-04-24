@@ -1,13 +1,12 @@
 package com.agp.qa.trail;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +26,7 @@ public class DynamicTable extends TestBase {
 
     public void verifyEditIcon() throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "D:\\Jignesh\\Driver\\Chrome 107\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\Jignesh\\Driver\\Chrome 107\\chromedriver2.exe");
 
         WebDriver driver = new ChromeDriver();
 

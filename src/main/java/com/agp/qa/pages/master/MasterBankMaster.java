@@ -1,6 +1,6 @@
 package com.agp.qa.pages.master;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.util.TestUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

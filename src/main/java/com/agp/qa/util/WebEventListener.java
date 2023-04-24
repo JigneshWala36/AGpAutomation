@@ -1,6 +1,6 @@
 package com.agp.qa.util;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;

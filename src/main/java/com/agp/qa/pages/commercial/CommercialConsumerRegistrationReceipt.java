@@ -1,6 +1,6 @@
 package com.agp.qa.pages.commercial;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.util.TestUtil;
 import com.agp.qa.util.Xls_Reader;
 import org.openqa.selenium.By;
@@ -12,9 +12,6 @@ import org.testng.Assert;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
 
 
 public class CommercialConsumerRegistrationReceipt extends TestBase {

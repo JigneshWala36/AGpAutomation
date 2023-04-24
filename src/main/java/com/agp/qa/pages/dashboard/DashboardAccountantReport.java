@@ -1,7 +1,6 @@
 package com.agp.qa.pages.dashboard;
 
-import com.agp.qa.base.TestBase;
-import com.agp.qa.pages.HR_Software.HR_SoftwareSystemUserList;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.accountantReport.*;
 import com.agp.qa.util.TestUtil;
 import org.openqa.selenium.WebElement;

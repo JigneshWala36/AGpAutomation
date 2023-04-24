@@ -1,12 +1,9 @@
 package com.agp.qa.test.commercial;
 
-import com.agp.qa.base.TestBase;
+import com.agp.qa.x.TestBase;
 import com.agp.qa.pages.commercial.CommercialConsumerRegistration;
-import com.agp.qa.pages.commercial.CommercialConsumerRegistration1;
 import com.agp.qa.pages.dashboard.DashboardCommercialNewConnection;
-import com.agp.qa.pages.dashboard.DashboardDomesticNewConnection;
 import com.agp.qa.pages.dashboard.DashboardPage;
-import com.agp.qa.pages.domestic.DomesticConsumerAgreementPrintPage;
 import com.agp.qa.pages.login.LoginPage;
 import com.agp.qa.util.TestUtil;
 import org.testng.annotations.AfterMethod;
